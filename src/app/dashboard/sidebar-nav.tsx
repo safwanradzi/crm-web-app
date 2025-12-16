@@ -1,6 +1,47 @@
+'use client'
+
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import {
+    Home,
+    LineChart,
+    Package,
+    Package2,
+    ShoppingCart,
+    Users,
+    Settings,
+    Wallet,
+    Globe,
+    FileText,
+    ArrowRightLeft,
+    LayoutGrid,
+    MessageSquare,
+} from "lucide-react"
+import { cn } from "@/lib/utils"
 import { SheetClose } from "@/components/ui/sheet"
 
-// ... (keep props and interfaces)
+interface NavItem {
+    name: string
+    href: string
+    icon: React.ComponentType<{ className?: string }>
+}
+
+const navItems: NavItem[] = [
+    { name: "Dashboard", href: "/dashboard", icon: Home },
+    { name: "Leads (Inbox)", href: "/dashboard/leads", icon: MessageSquare },
+    { name: "Clients", href: "/dashboard/clients", icon: Users },
+    { name: "Projects", href: "/dashboard/projects", icon: Package },
+    { name: "Domains", href: "/dashboard/domains", icon: Package2 },
+    { name: "Quotations", href: "/dashboard/quotations", icon: ShoppingCart },
+    { name: "Invoices", href: "/dashboard/invoices", icon: ShoppingCart },
+    { name: "Expenses", href: "/dashboard/expenses", icon: ShoppingCart },
+    { name: "Services / Add-ons", href: "/dashboard/addons", icon: Package },
+    { name: "My Portfolio", href: "/dashboard/portfolios", icon: LayoutGrid },
+]
+
+interface SidebarNavProps {
+    mobile?: boolean
+}
 
 export function SidebarNav({ mobile = false }: SidebarNavProps) {
     const pathname = usePathname()
