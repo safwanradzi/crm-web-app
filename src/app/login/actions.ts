@@ -33,6 +33,21 @@ export async function login(prevState: ActionState, formData: FormData): Promise
         return { error: error.message, success: false }
     }
 
+    // Post-login check: Is this user whitelisted as Admin?
+    const { data: isWhitelisted, error: checkError } = await supabase.rpc('check_admin_whitelist', {
+        email_input: email
+    })
+
+    if (checkError) {
+        await supabase.auth.signOut()
+        return { error: 'System error during authorization.', success: false }
+    }
+
+    if (!isWhitelisted) {
+        await supabase.auth.signOut()
+        return { error: 'Access Denied: You do not have admin privileges.', success: false }
+    }
+
     revalidatePath('/', 'layout')
     redirect('/dashboard')
 }
