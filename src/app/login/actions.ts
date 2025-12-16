@@ -81,8 +81,7 @@ export async function signupAdmin(prevState: ActionState, formData: FormData): P
 }
 
 // Alias for consistency
-export { signup as signup_legacy }
-// We are replacing the old 'signup' with 'signupAdmin' usage in the new form.
+export { signupAdmin as signup, signupAdmin as signup_legacy }
 
 export async function forgotPasswordAdmin(prevState: ActionState, formData: FormData): Promise<ActionState> {
     const supabase = await createClient()
