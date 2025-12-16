@@ -112,13 +112,7 @@ export default function DashboardLayout({
                             </DropdownMenuItem>
                             <DropdownMenuItem>Support</DropdownMenuItem>
                             <DropdownMenuSeparator />
-                            <DropdownMenuItem asChild>
-                                <form action={signOut} className="w-full">
-                                    <button className="w-full text-left cursor-pointer" type="submit">
-                                        Logout
-                                    </button>
-                                </form>
-                            </DropdownMenuItem>
+                            <LogoutButton />
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </header>
