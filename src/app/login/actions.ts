@@ -57,6 +57,7 @@ export { login as loginAdmin }
 
 export async function signupAdmin(prevState: ActionState, formData: FormData): Promise<ActionState> {
     const supabase = await createClient()
+    const origin = (await headers()).get('origin')
     const email = formData.get('email') as string
     const password = formData.get('password') as string
 
@@ -81,7 +82,7 @@ export async function signupAdmin(prevState: ActionState, formData: FormData): P
         email,
         password,
         options: {
-            emailRedirectTo: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/auth/callback`,
+            emailRedirectTo: `${origin}/auth/callback`,
             // Potentially add meta data: { role: 'admin' }
         },
     })
