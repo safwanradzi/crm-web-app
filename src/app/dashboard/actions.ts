@@ -3,21 +3,48 @@
 
 import { createClient } from '@/utils/supabase/server'
 
-export async function getDashboardStats() {
+export async function getDashboardStats({ month, year }: { month?: string, year?: string } = {}) {
     const supabase = await createClient()
 
+    let startDate, endDate
+
+    if (month && year) {
+        // Create date range for the specific month
+        const m = parseInt(month) - 1 // JS months are 0-indexed
+        const y = parseInt(year)
+        startDate = new Date(y, m, 1).toISOString()
+        endDate = new Date(y, m + 1, 0, 23, 59, 59).toISOString()
+    } else if (year) {
+        // Create date range for the specific year
+        const y = parseInt(year)
+        startDate = new Date(y, 0, 1).toISOString()
+        endDate = new Date(y, 11, 31, 23, 59, 59).toISOString()
+    }
+
     // 1. Total Revenue (Sum of 'paid' invoices)
-    const { data: paidInvoices, error: invoiceError } = await supabase
+    let revenueQuery = supabase
         .from('invoices')
         .select('total, date')
         .eq('status', 'paid')
 
+    if (startDate && endDate) {
+        revenueQuery = revenueQuery.gte('date', startDate).lte('date', endDate)
+    }
+
+    const { data: paidInvoices, error: invoiceError } = await revenueQuery
+
     const totalRevenue = paidInvoices?.reduce((sum, inv) => sum + (inv.total || 0), 0) || 0
 
     // 2. Total Expenses
-    const { data: expenses, error: expenseError } = await supabase
+    let expenseQuery = supabase
         .from('expenses')
         .select('amount, date')
+
+    if (startDate && endDate) {
+        expenseQuery = expenseQuery.gte('date', startDate).lte('date', endDate)
+    }
+
+    const { data: expenses, error: expenseError } = await expenseQuery
 
     const totalExpenses = expenses?.reduce((sum, exp) => sum + (exp.amount || 0), 0) || 0
 
@@ -28,6 +55,8 @@ export async function getDashboardStats() {
         .eq('status', 'in_progress')
 
     // 4. Recent Invoices (Limit 5)
+    // Note: Recent invoices might technically be outside the "filter" range if we just want "Recent", 
+    // but usually "Recent" means recent overall. We will keep this top 5 overall.
     const { data: recentInvoices } = await supabase
         .from('invoices')
         .select('*, clients(name)')
@@ -46,7 +75,13 @@ export async function getDashboardStats() {
         .lte('domain_expiry_date', thirtyDaysFromNow.toISOString())
         .order('domain_expiry_date', { ascending: true })
 
-    // 6. Monthly Data for Charts (Last 6 Months)
+    // 6. Monthly Data for Charts (Last 6 Months from NOW, typically fixed range)
+    // If a filter is applied (e.g. 2024), we might want to show that year's data. 
+    // But simply retaining the "Last 6 Months" logic is safer to avoid breaking the chart logic 
+    // unless we refactor the chart to handle variable ranges. 
+    // For now, we keep the original chart logic (Last 6 Months relative to today) 
+    // OR we could just let the chart show the filtered data if it matches.
+    // Let's stick to the original Chart Logic to avoid complexity risks right before deployment.
     const monthlyDataMap = new Map<string, { name: string; revenue: number; expenses: number }>()
 
     // Initialize last 6 months
