@@ -2,7 +2,7 @@
 
 import { useActionState, useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { loginClient, signupClient, forgotPasswordClient } from '../actions'
+import { ActionState, loginClient, signupClient, forgotPasswordClient } from '../actions'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -27,7 +27,7 @@ import {
 import { Loader2 } from 'lucide-react'
 
 // Initial state for actions
-const initialState = {
+const initialState: ActionState = {
     message: '',
     error: '',
     success: false

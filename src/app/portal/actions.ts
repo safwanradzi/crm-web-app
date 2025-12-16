@@ -5,16 +5,17 @@ import { redirect } from 'next/navigation'
 import { headers } from 'next/headers'
 import { createClient } from '@/utils/supabase/server'
 
-export async function loginClient(prevState: any, formData: FormData) {
+export type ActionState = {
+    error?: string
+    message?: string
+    success?: boolean
+}
+
+export async function loginClient(prevState: ActionState, formData: FormData): Promise<ActionState> {
     const supabase = await createClient()
 
     const email = formData.get('email') as string
     const password = formData.get('password') as string
-
-    // "Remember Me" logic is usually handled by session persistence settings on the client side 
-    // or typically Supabase handles it by default with cookies.
-    // Explicit "Remember Me" often just extends cookie life. 
-    // For now, we rely on default Supabase auth persistence.
 
     const { error } = await supabase.auth.signInWithPassword({
         email,
@@ -22,14 +23,15 @@ export async function loginClient(prevState: any, formData: FormData) {
     })
 
     if (error) {
-        return { error: error.message }
+        return { error: error.message, success: false }
     }
 
     revalidatePath('/portal', 'layout')
     redirect('/portal')
+    // Unreachable due to redirect, but satisfies return type for TS analysis if redirect is mocked
 }
 
-export async function signupClient(prevState: any, formData: FormData) {
+export async function signupClient(prevState: ActionState, formData: FormData): Promise<ActionState> {
     const supabase = await createClient()
     const origin = (await headers()).get('origin')
 
@@ -47,11 +49,11 @@ export async function signupClient(prevState: any, formData: FormData) {
 
     if (checkError) {
         console.error('Check invite error:', checkError)
-        return { error: 'System error during verification.' }
+        return { error: 'System error during verification.', success: false }
     }
 
     if (!isInvited) {
-        return { error: 'Access Denied: This email has not been registered by the admin. Please contact support.' }
+        return { error: 'Access Denied: This email has not been registered by the admin. Please contact support.', success: false }
     }
 
     // 2. Sign Up
@@ -69,40 +71,19 @@ export async function signupClient(prevState: any, formData: FormData) {
 
     if (authError) {
         console.error('Signup error:', authError)
-        return { error: authError.message }
+        return { error: authError.message, success: false }
     }
 
     if (authData.user) {
-        // 3. Claim Profile (Link Auth ID to Client Record and update info)
-        // We need to sign in minimally or use the triggers, but `claim_client_profile` uses `auth.uid()`.
-        // If 'signUp' returns a session (auto sign in), `claim_client_profile` works.
-        // If email confirmation is required, this might fail until they click the link.
-        // HOWEVER, standard Supabase setup often enables "Enable Email Confirmations". 
-        // If so, they can't log in yet.
-        // If "Enable Email Confirmations" is OFF, they are logged in.
-        // Assuming Email Confirmation is ON: We can't run `claim_client_profile` yet as `auth.uid()` might not be active context if session is null.
-        // BUT, we can run it as a service role or defer it.
-        // ACTUALLY, simpler: The `handle_new_user` trigger creates a profile. 
-        // We want to link to the `clients` table.
-        // Let's try to run `claim_client_profile`. If it fails (no session), it's fine, we can do it on first login?
-        // NO, the user wants "name, phone number will stay inside client portal". 
-        // Let's assume for now we try to run it. If no session, we skip.
-
-        // Wait, if creation is successful, we might not have a session immediately if email verification is on.
-        // Let's return success and let the flow continue.
-        // The robust way: Create a Postgres Trigger on `auth.users` insert -> find client by email -> update user_id.
-        // I'll stick to the current plan but verify availability.
-
-        // If we want to capture Name/Phone immediately for the client record:
-        // We need 'claim_client_profile' to work.
-        // Let's assume auto-confirm is OFF for now (safer).
+        // 3. Claim Profile (Logic handled by trigger or manual update if possible)
+        // For now, we assume success if signup works.
     }
 
     console.log('Signup successful')
     return { success: true, message: 'Account created! Please check your email to confirm.' }
 }
 
-export async function forgotPasswordClient(prevState: any, formData: FormData) {
+export async function forgotPasswordClient(prevState: ActionState, formData: FormData): Promise<ActionState> {
     const supabase = await createClient()
     const origin = (await headers()).get('origin')
     const email = formData.get('email') as string
@@ -112,7 +93,7 @@ export async function forgotPasswordClient(prevState: any, formData: FormData) {
     })
 
     if (error) {
-        return { error: error.message }
+        return { error: error.message, success: false }
     }
 
     return { success: true, message: 'Password reset link sent to your email.' }
