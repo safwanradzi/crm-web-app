@@ -16,6 +16,13 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { createPortfolioAction, updatePortfolioAction } from './actions'
 import { PlusCircle, UploadCloud } from 'lucide-react'
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from '@/components/ui/select'
 
 export function PortfolioDialog({ portfolio, trigger }: { portfolio?: any, trigger?: React.ReactNode }) {
     const [open, setOpen] = useState(false)
@@ -87,7 +94,16 @@ export function PortfolioDialog({ portfolio, trigger }: { portfolio?: any, trigg
                         </div>
                         <div className="grid gap-2">
                             <Label htmlFor="category">Category</Label>
-                            <Input id="category" name="category" placeholder="e.g. Web Design, SEO" defaultValue={portfolio?.category} />
+                            <Select name="category" defaultValue={portfolio?.category}>
+                                <SelectTrigger>
+                                    <SelectValue placeholder="Select a category" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="Landing Page">Landing Page</SelectItem>
+                                    <SelectItem value="Corporate Website">Corporate Website</SelectItem>
+                                    <SelectItem value="Ecommerce Website">Ecommerce Website</SelectItem>
+                                </SelectContent>
+                            </Select>
                         </div>
                         <div className="grid gap-2">
                             <Label htmlFor="live_url">Live Website URL</Label>
