@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -16,7 +16,7 @@ import { submitLeadAction } from './actions'
 import { Mail, Phone, CheckCircle, Loader2 } from 'lucide-react'
 import { useSearchParams } from 'next/navigation'
 
-export default function ContactPage() {
+function ContactForm() {
     const searchParams = useSearchParams()
     const preselectedService = searchParams.get('p') // e.g. 'landing', 'corporate'
 
@@ -40,23 +40,77 @@ export default function ContactPage() {
 
     if (success) {
         return (
-            <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
-                <div className="bg-white p-8 rounded-2xl shadow-xl max-w-md w-full text-center">
-                    <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <CheckCircle className="h-8 w-8" />
-                    </div>
-                    <h2 className="text-2xl font-bold text-brand-midnight mb-2">Message Sent!</h2>
-                    <p className="text-slate-600 mb-6">
-                        Thank you for reaching out. We have received your inquiry and will get back to you within 24 hours.
-                    </p>
-                    <Button onClick={() => setSuccess(false)} variant="outline">
-                        Send Another Message
-                    </Button>
+            <div className="bg-white p-8 rounded-2xl shadow-xl border border-slate-100 text-center h-full flex flex-col items-center justify-center min-h-[400px]">
+                <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
+                    <CheckCircle className="h-8 w-8" />
                 </div>
+                <h2 className="text-2xl font-bold text-brand-midnight mb-2">Message Sent!</h2>
+                <p className="text-slate-600 mb-6">
+                    Thank you for reaching out. We have received your inquiry and will get back to you within 24 hours.
+                </p>
+                <Button onClick={() => setSuccess(false)} variant="outline">
+                    Send Another Message
+                </Button>
             </div>
         )
     }
 
+    return (
+        <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+            <h2 className="text-2xl font-bold text-brand-midnight mb-6">Send us a Message</h2>
+            <form onSubmit={onSubmit} className="space-y-6">
+                <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                        <Label htmlFor="name">Name</Label>
+                        <Input id="name" name="name" placeholder="Your Name" required />
+                    </div>
+                    <div className="space-y-2">
+                        <Label htmlFor="phone">Phone</Label>
+                        <Input id="phone" name="phone" placeholder="+60..." />
+                    </div>
+                </div>
+
+                <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input id="email" name="email" type="email" placeholder="you@company.com" required />
+                </div>
+
+                <div className="space-y-2">
+                    <Label htmlFor="service">Interested Service</Label>
+                    <Select name="service_interest" defaultValue={preselectedService || undefined}>
+                        <SelectTrigger>
+                            <SelectValue placeholder="Select a service..." />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="landing">Landing Page (RM499)</SelectItem>
+                            <SelectItem value="corporate">Corporate Website (RM1,499)</SelectItem>
+                            <SelectItem value="ecommerce">E-Commerce Store (RM1,899)</SelectItem>
+                            <SelectItem value="custom">Custom Project</SelectItem>
+                            <SelectItem value="other">Other Inquiry</SelectItem>
+                        </SelectContent>
+                    </Select>
+                </div>
+
+                <div className="space-y-2">
+                    <Label htmlFor="message">Project Details</Label>
+                    <Textarea
+                        id="message"
+                        name="message"
+                        placeholder="Tell us about your business goals..."
+                        className="min-h-[120px]"
+                    />
+                </div>
+
+                <Button type="submit" size="lg" className="w-full bg-brand-indigo hover:bg-indigo-700 h-12 text-lg" disabled={loading}>
+                    {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                    {loading ? 'Sending...' : 'Send Message'}
+                </Button>
+            </form>
+        </div>
+    )
+}
+
+export default function ContactPage() {
     return (
         <div className="bg-white min-h-screen">
             {/* Hero */}
@@ -103,58 +157,14 @@ export default function ContactPage() {
                         </div>
                     </div>
 
-                    {/* Form */}
-                    <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
-                        <h2 className="text-2xl font-bold text-brand-midnight mb-6">Send us a Message</h2>
-                        <form onSubmit={onSubmit} className="space-y-6">
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="space-y-2">
-                                    <Label htmlFor="name">Name</Label>
-                                    <Input id="name" name="name" placeholder="Your Name" required />
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="phone">Phone</Label>
-                                    <Input id="phone" name="phone" placeholder="+60..." />
-                                </div>
-                            </div>
-
-                            <div className="space-y-2">
-                                <Label htmlFor="email">Email</Label>
-                                <Input id="email" name="email" type="email" placeholder="you@company.com" required />
-                            </div>
-
-                            <div className="space-y-2">
-                                <Label htmlFor="service">Interested Service</Label>
-                                <Select name="service_interest" defaultValue={preselectedService || undefined}>
-                                    <SelectTrigger>
-                                        <SelectValue placeholder="Select a service..." />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="landing">Landing Page (RM499)</SelectItem>
-                                        <SelectItem value="corporate">Corporate Website (RM1,499)</SelectItem>
-                                        <SelectItem value="ecommerce">E-Commerce Store (RM1,899)</SelectItem>
-                                        <SelectItem value="custom">Custom Project</SelectItem>
-                                        <SelectItem value="other">Other Inquiry</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </div>
-
-                            <div className="space-y-2">
-                                <Label htmlFor="message">Project Details</Label>
-                                <Textarea
-                                    id="message"
-                                    name="message"
-                                    placeholder="Tell us about your business goals..."
-                                    className="min-h-[120px]"
-                                />
-                            </div>
-
-                            <Button type="submit" size="lg" className="w-full bg-brand-indigo hover:bg-indigo-700 h-12 text-lg" disabled={loading}>
-                                {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                                {loading ? 'Sending...' : 'Send Message'}
-                            </Button>
-                        </form>
-                    </div>
+                    {/* Form Wrapped in Suspense */}
+                    <Suspense fallback={
+                        <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 flex items-center justify-center min-h-[500px]">
+                            <Loader2 className="h-8 w-8 animate-spin text-brand-indigo" />
+                        </div>
+                    }>
+                        <ContactForm />
+                    </Suspense>
 
                 </div>
             </section>
