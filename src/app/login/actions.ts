@@ -100,3 +100,9 @@ export async function forgotPasswordAdmin(prevState: ActionState, formData: Form
 
     return { success: true, message: 'Reset link sent to your admin email.' }
 }
+
+export async function signOut() {
+    const supabase = await createClient()
+    await supabase.auth.signOut()
+    redirect('/login')
+}
