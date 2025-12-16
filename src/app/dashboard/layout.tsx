@@ -12,7 +12,8 @@ import {
     ShoppingCart,
     Users,
 } from "lucide-react"
-import { signOut } from "../login/actions"
+
+import { LogoutButton } from "./logout-button"
 
 
 import { Button } from "@/components/ui/button"
