@@ -11,9 +11,10 @@ export const dynamic = 'force-dynamic'
 export default async function LeadsPage({
     searchParams,
 }: {
-    searchParams: { [key: string]: string | string[] | undefined }
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
-    const page = typeof searchParams?.page === 'string' ? Number(searchParams.page) : 1
+    const params = await searchParams
+    const page = typeof params?.page === 'string' ? Number(params.page) : 1
     const limit = 10
     const { data: leads, totalCount } = await getLeads(page, limit)
     const totalPages = Math.ceil(totalCount / limit)
