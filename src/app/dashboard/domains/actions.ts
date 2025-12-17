@@ -67,7 +67,7 @@ export async function createDomainAction(formData: FormData) {
 
     if (domainCost > 0) {
         expensesToInsert.push({
-            user_id: user.id,
+            owner_id: user.id,
             description: `Domain Registration: ${domainData.domain_name}`,
             amount: domainCost,
             category: 'Domain',
@@ -77,7 +77,7 @@ export async function createDomainAction(formData: FormData) {
 
     if (hostingCost > 0) {
         expensesToInsert.push({
-            user_id: user.id,
+            owner_id: user.id,
             description: `Hosting Subscription: ${domainData.domain_name} (${domainData.hosting_provider})`,
             amount: hostingCost,
             category: 'Hosting',
