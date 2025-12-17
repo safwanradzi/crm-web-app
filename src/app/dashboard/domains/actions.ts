@@ -70,7 +70,7 @@ export async function createDomainAction(formData: FormData) {
             owner_id: user.id,
             description: `Domain Registration: ${domainData.domain_name}`,
             amount: domainCost,
-            category: 'Domain',
+            category: 'domain_purchase',
             date: domainData.domain_purchase_date || new Date().toISOString()
         })
     }
@@ -80,7 +80,7 @@ export async function createDomainAction(formData: FormData) {
             owner_id: user.id,
             description: `Hosting Subscription: ${domainData.domain_name} (${domainData.hosting_provider})`,
             amount: hostingCost,
-            category: 'Hosting',
+            category: 'hosting_server',
             date: domainData.hosting_purchase_date || new Date().toISOString()
         })
     }
