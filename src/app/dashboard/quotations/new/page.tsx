@@ -5,8 +5,8 @@ import { getProjects } from '../../projects/actions'
 import { generateQuoteNumber } from '../actions'
 
 export default async function NewQuotationPage() {
-    const clients = await getClients()
-    const projects = await getProjects()
+    const { data: clients } = await getClients(1, 1000)
+    const { data: projects } = await getProjects(1, 1000)
     const nextQuoteNumber = await generateQuoteNumber()
 
     return (

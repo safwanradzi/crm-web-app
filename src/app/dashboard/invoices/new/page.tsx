@@ -4,8 +4,8 @@ import { InvoiceForm } from '../invoice-form'
 import { generateInvoiceNumber } from '../actions'
 
 export default async function NewInvoicePage() {
-    const clients = await getClients()
-    const projects = await getProjects()
+    const { data: clients } = await getClients(1, 1000)
+    const { data: projects } = await getProjects(1, 1000)
     const nextInvoiceNumber = await generateInvoiceNumber()
 
     return (

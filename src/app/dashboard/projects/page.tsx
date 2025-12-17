@@ -18,17 +18,6 @@ export default async function ProjectsPage({
     const page = typeof searchParams?.page === 'string' ? Number(searchParams.page) : 1
     const limit = 10
     const { data: projects, totalCount } = await getProjects(page, limit)
-    const clients = await getClients() // Clients dropdown usually needs ALL clients, not paginated.
-    // Wait, getClients is now paginated! Calling getClients() without args defaults to page 1 limit 10.
-    // Use Case: The ProjectDialog needs clients list to select from. 
-    // If I paginate clients, the dropdown will only show 10 clients. This is a problem.
-    // I should create a separate `getAllClients` for dropdowns, or pass specific limit.
-    // For now, let's call `getClients` with a large limit for dropdowns.
-
-    // However, I can't await inside the JSX easily if I change it later. 
-    // Let's look at `getClients` signature: `getClients(page = 1, limit = 10)`.
-    // I should call `getClients(1, 1000)` for the dropdown lists to be safe.
-
     const { data: allClients } = await getClients(1, 1000)
 
     const totalPages = Math.ceil(totalCount / limit)
