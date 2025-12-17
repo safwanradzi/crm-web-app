@@ -5,6 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { PaginationControls } from '@/components/ui/pagination-controls'
 
+export const dynamic = 'force-dynamic'
+
 export default async function AddonsPage({
     searchParams,
 }: {
@@ -19,7 +21,7 @@ export default async function AddonsPage({
     const totalPages = Math.ceil(totalCount / limit)
 
     return (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4" key={page}>
             <div className="flex items-center justify-between">
                 <h1 className="text-lg font-semibold md:text-2xl">Add-on Services</h1>
                 <AddonDialog projects={allProjects} />

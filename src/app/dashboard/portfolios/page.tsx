@@ -6,6 +6,8 @@ import { Trash2, ExternalLink, Edit } from 'lucide-react'
 import Image from 'next/image'
 import { PaginationControls } from '@/components/ui/pagination-controls'
 
+export const dynamic = 'force-dynamic'
+
 export default async function PortfolioAdminPage({
     searchParams,
 }: {
@@ -17,7 +19,7 @@ export default async function PortfolioAdminPage({
     const totalPages = Math.ceil(totalCount / limit)
 
     return (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4" key={page}>
             <div className="flex items-center justify-between">
                 <div>
                     <h1 className="text-lg font-semibold md:text-2xl">Portfolio CMS</h1>

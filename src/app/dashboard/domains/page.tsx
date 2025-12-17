@@ -8,6 +8,8 @@ import { Badge } from '@/components/ui/badge'
 import { differenceInDays, parseISO } from 'date-fns'
 import { PaginationControls } from '@/components/ui/pagination-controls'
 
+export const dynamic = 'force-dynamic'
+
 export default async function DomainsPage({
     searchParams,
 }: {

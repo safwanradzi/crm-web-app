@@ -7,6 +7,7 @@ import { redirect } from 'next/navigation'
 import { Client } from '@/types'
 
 export async function getClients(page: number = 1, limit: number = 10) {
+    console.log(`getClients called with page=${page}, limit=${limit}`)
     const supabase = await createClient()
     const offset = (page - 1) * limit
 

@@ -7,6 +7,8 @@ import { Plus } from 'lucide-react'
 import Link from 'next/link'
 import { PaginationControls } from '@/components/ui/pagination-controls'
 
+export const dynamic = 'force-dynamic'
+
 export default async function InvoicesPage({
     searchParams,
 }: {
@@ -18,7 +20,7 @@ export default async function InvoicesPage({
     const totalPages = Math.ceil(totalCount / limit)
 
     return (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4" key={page}>
             <div className="flex items-center justify-between">
                 <h1 className="text-lg font-semibold md:text-2xl">Invoices</h1>
                 <Link href="/dashboard/invoices/new">

@@ -10,6 +10,8 @@ import { deleteClientAction } from './actions'
 import { ClientActionsMenu } from './client-actions-menu'
 import { PaginationControls } from '@/components/ui/pagination-controls'
 
+export const dynamic = 'force-dynamic'
+
 export default async function ClientsPage({
     searchParams,
 }: {
@@ -21,7 +23,7 @@ export default async function ClientsPage({
     const totalPages = Math.ceil(totalCount / limit)
 
     return (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4" key={page}>
             <div className="flex items-center justify-between">
                 <h1 className="text-lg font-semibold md:text-2xl">Clients</h1>
                 <ClientDialog />

@@ -10,6 +10,8 @@ import { Eye } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { PaginationControls } from '@/components/ui/pagination-controls'
 
+export const dynamic = 'force-dynamic'
+
 export default async function ProjectsPage({
     searchParams,
 }: {
@@ -23,7 +25,7 @@ export default async function ProjectsPage({
     const totalPages = Math.ceil(totalCount / limit)
 
     return (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4" key={page}>
             <div className="flex items-center justify-between">
                 <h1 className="text-lg font-semibold md:text-2xl">Projects</h1>
                 <ProjectDialog clients={allClients} />

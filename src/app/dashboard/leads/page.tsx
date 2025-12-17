@@ -6,6 +6,8 @@ import { Badge } from '@/components/ui/badge'
 import { Trash2, Phone, Mail, MessageSquare, CheckCircle, Archive, UserCheck } from 'lucide-react'
 import { PaginationControls } from '@/components/ui/pagination-controls'
 
+export const dynamic = 'force-dynamic'
+
 export default async function LeadsPage({
     searchParams,
 }: {
@@ -17,7 +19,7 @@ export default async function LeadsPage({
     const totalPages = Math.ceil(totalCount / limit)
 
     return (
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6" key={page}>
             <div>
                 <h1 className="text-3xl font-bold tracking-tight">Leads & Inquiries</h1>
                 <p className="text-muted-foreground">Manage potential clients from your website contact form.</p>
