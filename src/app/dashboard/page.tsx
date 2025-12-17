@@ -37,6 +37,16 @@ export default async function DashboardPage(props: { searchParams: Promise<{ [ke
                 </Card>
                 <Card x-chunk="dashboard-01-chunk-1">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                        <CardTitle className="text-sm font-medium"> Total Sales </CardTitle>
+                        <DollarSign className="h-4 w-4 text-blue-600" />
+                    </CardHeader>
+                    <CardContent>
+                        <div className="text-2xl font-bold text-blue-600">RM {stats.totalSales.toFixed(2)}</div>
+                        <p className="text-xs text-muted-foreground"> Total Value of Projects </p>
+                    </CardContent>
+                </Card>
+                <Card x-chunk="dashboard-01-chunk-2">
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                         <CardTitle className="text-sm font-medium"> Expenses </CardTitle>
                         <CreditCard className="h-4 w-4 text-muted-foreground" />
                     </CardHeader>
@@ -45,7 +55,7 @@ export default async function DashboardPage(props: { searchParams: Promise<{ [ke
                         <p className="text-xs text-muted-foreground"> Total recorded expenses </p>
                     </CardContent>
                 </Card>
-                <Card x-chunk="dashboard-01-chunk-2">
+                <Card x-chunk="dashboard-01-chunk-3">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                         <CardTitle className="text-sm font-medium"> Net Profit </CardTitle>
                         <Activity className="h-4 w-4 text-muted-foreground" />
@@ -57,14 +67,39 @@ export default async function DashboardPage(props: { searchParams: Promise<{ [ke
                         <p className="text-xs text-muted-foreground"> Revenue - Expenses </p>
                     </CardContent>
                 </Card>
-                <Card x-chunk="dashboard-01-chunk-3">
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium"> Active Projects </CardTitle>
-                        <Users className="h-4 w-4 text-muted-foreground" />
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                <Card>
+                    <CardHeader className="pb-2">
+                        <CardTitle className="text-sm font-medium text-muted-foreground">Total Projects</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">{stats.activeProjects}</div>
-                        <p className="text-xs text-muted-foreground"> Projects currently in progress </p>
+                        <div className="text-2xl font-bold">{stats.totalProjects}</div>
+                    </CardContent>
+                </Card>
+                <Card>
+                    <CardHeader className="pb-2">
+                        <CardTitle className="text-sm font-medium text-muted-foreground">Active Projects</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="text-2xl font-bold text-orange-600">{stats.activeProjects}</div>
+                    </CardContent>
+                </Card>
+                <Card>
+                    <CardHeader className="pb-2">
+                        <CardTitle className="text-sm font-medium text-muted-foreground">Completed Projects</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="text-2xl font-bold text-green-600">{stats.completedProjects}</div>
+                    </CardContent>
+                </Card>
+                <Card>
+                    <CardHeader className="pb-2">
+                        <CardTitle className="text-sm font-medium text-muted-foreground">Total Clients</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="text-2xl font-bold">{stats.totalClients}</div>
                     </CardContent>
                 </Card>
             </div>

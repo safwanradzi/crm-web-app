@@ -60,6 +60,40 @@ export async function createDomainAction(formData: FormData) {
         return { error: error.message }
     }
 
+    // Auto-create Expenses
+    const domainCost = Number(formData.get('domain_cost')) || 0
+    const hostingCost = Number(formData.get('hosting_cost')) || 0
+    const expensesToInsert = []
+
+    if (domainCost > 0) {
+        expensesToInsert.push({
+            user_id: user.id,
+            description: `Domain Registration: ${domainData.domain_name}`,
+            amount: domainCost,
+            category: 'Domain',
+            date: domainData.domain_purchase_date || new Date().toISOString()
+        })
+    }
+
+    if (hostingCost > 0) {
+        expensesToInsert.push({
+            user_id: user.id,
+            description: `Hosting Subscription: ${domainData.domain_name} (${domainData.hosting_provider})`,
+            amount: hostingCost,
+            category: 'Hosting',
+            date: domainData.hosting_purchase_date || new Date().toISOString()
+        })
+    }
+
+    if (expensesToInsert.length > 0) {
+        const { error: expenseError } = await supabase.from('expenses').insert(expensesToInsert)
+        if (expenseError) {
+            console.error('Failed to auto-create expenses for domain:', expenseError)
+            // We don't fail the whole request, but we might want to warn. 
+            // For now, we assume it works or log it.
+        }
+    }
+
     revalidatePath('/dashboard/domains')
     return { success: true }
 }

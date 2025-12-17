@@ -75,13 +75,30 @@ export async function getDashboardStats({ month, year }: { month?: string, year?
         .lte('domain_expiry_date', thirtyDaysFromNow.toISOString())
         .order('domain_expiry_date', { ascending: true })
 
-    // 6. Monthly Data for Charts (Last 6 Months from NOW, typically fixed range)
-    // If a filter is applied (e.g. 2024), we might want to show that year's data. 
-    // But simply retaining the "Last 6 Months" logic is safer to avoid breaking the chart logic 
-    // unless we refactor the chart to handle variable ranges. 
-    // For now, we keep the original chart logic (Last 6 Months relative to today) 
-    // OR we could just let the chart show the filtered data if it matches.
-    // Let's stick to the original Chart Logic to avoid complexity risks right before deployment.
+    // 6. Extended Metrics (Total Sales, Project Stats, Client Stats)
+
+    // Total Sales (Project Value)
+    const { data: allProjects, error: allProjError } = await supabase
+        .from('projects')
+        .select('value, status')
+
+    const totalSales = allProjects?.reduce((sum, p) => sum + (p.value || 0), 0) || 0
+    const totalProjects = allProjects?.length || 0
+    const completedProjects = allProjects?.filter(p => p.status === 'completed').length || 0
+    // Active Projects logic is already handled above (activeProjects var), 
+    // but calculating from 'allProjects' saves a DB call if strict query above isn't needed separately. 
+    // However, existing activeProjects query uses { count: 'exact' } which is efficient. 
+    // We already fetched it, so we can keep it or replace logic.
+    // Let's stick to using `allProjects` to derive counts to minimize queries if dataset is small, 
+    // or keep separate queries if dataset is large. For now, separate is fine or shared.
+    // Let's reuse 'allProjects' for consistency if possible, but the above 'activeProjects' query is count-only.
+
+    // Total Clients
+    const { count: totalClients } = await supabase
+        .from('clients')
+        .select('*', { count: 'exact', head: true })
+
+    // 7. Monthly Data for Charts (Last 6 Months from NOW)
     const monthlyDataMap = new Map<string, { name: string; revenue: number; expenses: number }>()
 
     // Initialize last 6 months
@@ -95,7 +112,6 @@ export async function getDashboardStats({ month, year }: { month?: string, year?
 
     // Aggregate Revenue
     paidInvoices?.forEach((inv: any) => {
-        // Ensure date exists and is long enough
         if (inv.date && inv.date.length >= 7) {
             const date = inv.date.substring(0, 7) // YYYY-MM
             if (monthlyDataMap.has(date)) {
@@ -123,6 +139,12 @@ export async function getDashboardStats({ month, year }: { month?: string, year?
         activeProjects: activeProjects || 0,
         recentInvoices: recentInvoices || [],
         renewals: renewals || [],
-        monthlyData
+        monthlyData,
+        // New Metric Returns
+        totalSales,
+        totalProjects,
+        completedProjects,
+        totalClients: totalClients || 0
     }
 }
+
