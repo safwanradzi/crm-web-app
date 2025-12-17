@@ -80,9 +80,9 @@ export async function getDashboardStats({ month, year }: { month?: string, year?
     // Total Sales (Project Value)
     const { data: allProjects, error: allProjError } = await supabase
         .from('projects')
-        .select('value, status')
+        .select('base_price, status')
 
-    const totalSales = allProjects?.reduce((sum, p) => sum + (p.value || 0), 0) || 0
+    const totalSales = allProjects?.reduce((sum, p) => sum + (p.base_price || 0), 0) || 0
     const totalProjects = allProjects?.length || 0
     const completedProjects = allProjects?.filter(p => p.status === 'completed').length || 0
     // Active Projects logic is already handled above (activeProjects var), 
