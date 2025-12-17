@@ -4,9 +4,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button'
 import { Trash2, ExternalLink, Edit } from 'lucide-react'
 import Image from 'next/image'
+import { PaginationControls } from '@/components/ui/pagination-controls'
 
-export default async function PortfolioAdminPage() {
-    const portfolios = await getPortfolios()
+export default async function PortfolioAdminPage({
+    searchParams,
+}: {
+    searchParams: { [key: string]: string | string[] | undefined }
+}) {
+    const page = typeof searchParams?.page === 'string' ? Number(searchParams.page) : 1
+    const limit = 10
+    const { data: portfolios, totalCount } = await getPortfolios(page, limit)
+    const totalPages = Math.ceil(totalCount / limit)
 
     return (
         <div className="flex flex-col gap-4">
@@ -74,6 +82,15 @@ export default async function PortfolioAdminPage() {
                     <PortfolioDialog />
                 </div>
             )}
+
+            <div className="mt-4">
+                <PaginationControls
+                    hasNextPage={page < totalPages}
+                    hasPrevPage={page > 1}
+                    totalCount={totalCount}
+                    totalPages={totalPages}
+                />
+            </div>
         </div>
     )
 }

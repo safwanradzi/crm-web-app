@@ -5,23 +5,26 @@ import { createClient } from '@/utils/supabase/server'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
-export async function getQuotations() {
+export async function getQuotations(page: number = 1, limit: number = 10) {
     const supabase = await createClient()
-    const { data, error } = await supabase
+    const offset = (page - 1) * limit
+
+    const { data, count, error } = await supabase
         .from('quotations')
         .select(`
       *,
       clients(name),
       projects(name)
-    `)
+    `, { count: 'exact' })
         .order('created_at', { ascending: false })
+        .range(offset, offset + limit - 1)
 
     if (error) {
         console.error('Error fetching quotations:', error)
-        return []
+        return { data: [], totalCount: 0 }
     }
 
-    return data
+    return { data: data as any[], totalCount: count || 0 }
 }
 
 export async function getQuotationById(id: string) {

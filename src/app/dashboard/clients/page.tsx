@@ -1,4 +1,3 @@
-
 import { getClients } from './actions'
 import { ClientDialog } from './client-dialog'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -9,9 +8,17 @@ import { MoreHorizontal } from 'lucide-react'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { deleteClientAction } from './actions'
 import { ClientActionsMenu } from './client-actions-menu'
+import { PaginationControls } from '@/components/ui/pagination-controls'
 
-export default async function ClientsPage() {
-    const clients = await getClients()
+export default async function ClientsPage({
+    searchParams,
+}: {
+    searchParams: { [key: string]: string | string[] | undefined }
+}) {
+    const page = typeof searchParams?.page === 'string' ? Number(searchParams.page) : 1
+    const limit = 10
+    const { data: clients, totalCount } = await getClients(page, limit)
+    const totalPages = Math.ceil(totalCount / limit)
 
     return (
         <div className="flex flex-col gap-4">
@@ -71,6 +78,14 @@ export default async function ClientsPage() {
                             )}
                         </TableBody>
                     </Table>
+                    <div className="mt-4">
+                        <PaginationControls
+                            hasNextPage={page < totalPages}
+                            hasPrevPage={page > 1}
+                            totalCount={totalCount}
+                            totalPages={totalPages}
+                        />
+                    </div>
                 </CardContent>
             </Card>
         </div>

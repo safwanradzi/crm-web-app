@@ -1,4 +1,3 @@
-
 import { getDomains } from './actions'
 import { getProjects } from '../projects/actions'
 import { DomainDialog } from './domain-dialog'
@@ -7,10 +6,22 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
 import { differenceInDays, parseISO } from 'date-fns'
+import { PaginationControls } from '@/components/ui/pagination-controls'
 
-export default async function DomainsPage() {
-    const domains = await getDomains()
-    const projects = await getProjects()
+export default async function DomainsPage({
+    searchParams,
+}: {
+    searchParams: { [key: string]: string | string[] | undefined }
+}) {
+    const page = typeof searchParams?.page === 'string' ? Number(searchParams.page) : 1
+    const limit = 10
+    const { data: domains, totalCount } = await getDomains(page, limit)
+    // For dropdowns, we need all projects. 
+    // getProjects has been updated to be paginated. 
+    // We fetch a larger limit to get all projects for the dialog.
+    const { data: allProjects } = await getProjects(1, 1000)
+
+    const totalPages = Math.ceil(totalCount / limit)
 
     const getStatusBadge = (expiryDate: string | null) => {
         if (!expiryDate) return <Badge variant="secondary">No Date</Badge>
@@ -25,7 +36,7 @@ export default async function DomainsPage() {
         <div className="flex flex-col gap-4">
             <div className="flex items-center justify-between">
                 <h1 className="text-lg font-semibold md:text-2xl">Domains & Hosting</h1>
-                <DomainDialog projects={projects} />
+                <DomainDialog projects={allProjects} />
             </div>
             <Card>
                 <CardHeader className="px-7">
@@ -84,7 +95,7 @@ export default async function DomainsPage() {
                                     </TableCell>
                                     <TableCell className="text-right">
                                         <div className="flex items-center justify-end gap-2">
-                                            <DomainDialog projects={projects} domain={item} />
+                                            <DomainDialog projects={allProjects} domain={item} />
                                             <DeleteDomainButton id={item.id} />
                                         </div>
                                     </TableCell>
@@ -92,6 +103,14 @@ export default async function DomainsPage() {
                             ))}
                         </TableBody>
                     </Table>
+                    <div className="mt-4">
+                        <PaginationControls
+                            hasNextPage={page < totalPages}
+                            hasPrevPage={page > 1}
+                            totalCount={totalCount}
+                            totalPages={totalPages}
+                        />
+                    </div>
                 </CardContent>
             </Card>
         </div>

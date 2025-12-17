@@ -1,19 +1,28 @@
-
 import { getAddons } from './actions'
 import { getProjects } from '../projects/actions'
 import { AddonDialog } from './addon-dialog'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { PaginationControls } from '@/components/ui/pagination-controls'
 
-export default async function AddonsPage() {
-    const addons = await getAddons()
-    const projects = await getProjects()
+export default async function AddonsPage({
+    searchParams,
+}: {
+    searchParams: { [key: string]: string | string[] | undefined }
+}) {
+    const page = typeof searchParams?.page === 'string' ? Number(searchParams.page) : 1
+    const limit = 10
+    const { data: addons, totalCount } = await getAddons(page, limit)
+    // Fetch all projects for dropdowns
+    const { data: allProjects } = await getProjects(1, 1000)
+
+    const totalPages = Math.ceil(totalCount / limit)
 
     return (
         <div className="flex flex-col gap-4">
             <div className="flex items-center justify-between">
                 <h1 className="text-lg font-semibold md:text-2xl">Add-on Services</h1>
-                <AddonDialog projects={projects} />
+                <AddonDialog projects={allProjects} />
             </div>
             <Card>
                 <CardHeader className="px-7">
@@ -55,6 +64,14 @@ export default async function AddonsPage() {
                             ))}
                         </TableBody>
                     </Table>
+                    <div className="mt-4">
+                        <PaginationControls
+                            hasNextPage={page < totalPages}
+                            hasPrevPage={page > 1}
+                            totalCount={totalCount}
+                            totalPages={totalPages}
+                        />
+                    </div>
                 </CardContent>
             </Card>
         </div>

@@ -4,22 +4,25 @@
 import { createClient } from '@/utils/supabase/server'
 import { revalidatePath } from 'next/cache'
 
-export async function getExpenses() {
+export async function getExpenses(page: number = 1, limit: number = 10) {
     const supabase = await createClient()
-    const { data, error } = await supabase
+    const offset = (page - 1) * limit
+
+    const { data, count, error } = await supabase
         .from('expenses')
         .select(`
       *,
       projects (name)
-    `)
+    `, { count: 'exact' })
         .order('date', { ascending: false })
+        .range(offset, offset + limit - 1)
 
     if (error) {
         console.error('Error fetching expenses:', error)
-        return []
+        return { data: [], totalCount: 0 }
     }
 
-    return data as any[]
+    return { data: data as any[], totalCount: count || 0 }
 }
 
 export async function createExpenseAction(formData: FormData) {

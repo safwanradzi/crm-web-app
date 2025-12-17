@@ -5,22 +5,25 @@ import { createClient } from '@/utils/supabase/server'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
-export async function getDomains() {
+export async function getDomains(page: number = 1, limit: number = 10) {
     const supabase = await createClient()
-    const { data, error } = await supabase
+    const offset = (page - 1) * limit
+
+    const { data, count, error } = await supabase
         .from('domains_hosting')
         .select(`
       *,
       projects (name)
-    `)
+    `, { count: 'exact' })
         .order('domain_expiry_date', { ascending: true }) // Expiring soonest first
+        .range(offset, offset + limit - 1)
 
     if (error) {
         console.error('Error fetching domains:', error)
-        return []
+        return { data: [], totalCount: 0 }
     }
 
-    return data as any[]
+    return { data: data as any[], totalCount: count || 0 }
 }
 
 export async function createDomainAction(formData: FormData) {

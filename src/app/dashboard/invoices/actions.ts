@@ -5,22 +5,25 @@ import { createClient } from '@/utils/supabase/server'
 import { revalidatePath } from 'next/cache'
 import { InvoiceItem } from '@/types'
 
-export async function getInvoices() {
+export async function getInvoices(page: number = 1, limit: number = 10) {
     const supabase = await createClient()
-    const { data, error } = await supabase
+    const offset = (page - 1) * limit
+
+    const { data, count, error } = await supabase
         .from('invoices')
         .select(`
       *,
       clients (name)
-    `)
+    `, { count: 'exact' })
         .order('created_at', { ascending: false })
+        .range(offset, offset + limit - 1)
 
     if (error) {
         console.error('Error fetching invoices:', error)
-        return []
+        return { data: [], totalCount: 0 }
     }
 
-    return data as any[]
+    return { data: data as any[], totalCount: count || 0 }
 }
 
 export async function getInvoiceById(id: string) {

@@ -1,4 +1,3 @@
-
 import { getQuotations } from "./actions"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -13,9 +12,17 @@ import {
 } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { PaginationControls } from "@/components/ui/pagination-controls"
 
-export default async function QuotationsPage() {
-    const quotations = await getQuotations()
+export default async function QuotationsPage({
+    searchParams,
+}: {
+    searchParams: { [key: string]: string | string[] | undefined }
+}) {
+    const page = typeof searchParams?.page === 'string' ? Number(searchParams.page) : 1
+    const limit = 10
+    const { data: quotations, totalCount } = await getQuotations(page, limit)
+    const totalPages = Math.ceil(totalCount / limit)
 
     return (
         <div className="flex flex-col gap-6">
@@ -78,6 +85,14 @@ export default async function QuotationsPage() {
                             )}
                         </TableBody>
                     </Table>
+                    <div className="mt-4">
+                        <PaginationControls
+                            hasNextPage={page < totalPages}
+                            hasPrevPage={page > 1}
+                            totalCount={totalCount}
+                            totalPages={totalPages}
+                        />
+                    </div>
                 </CardContent>
             </Card>
         </div>

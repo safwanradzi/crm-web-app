@@ -1,4 +1,3 @@
-
 import { getInvoices } from './actions'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
@@ -6,9 +5,17 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Plus } from 'lucide-react'
 import Link from 'next/link'
+import { PaginationControls } from '@/components/ui/pagination-controls'
 
-export default async function InvoicesPage() {
-    const invoices = await getInvoices()
+export default async function InvoicesPage({
+    searchParams,
+}: {
+    searchParams: { [key: string]: string | string[] | undefined }
+}) {
+    const page = typeof searchParams?.page === 'string' ? Number(searchParams.page) : 1
+    const limit = 10
+    const { data: invoices, totalCount } = await getInvoices(page, limit)
+    const totalPages = Math.ceil(totalCount / limit)
 
     return (
         <div className="flex flex-col gap-4">
@@ -75,6 +82,14 @@ export default async function InvoicesPage() {
                             )}
                         </TableBody>
                     </Table>
+                    <div className="mt-4">
+                        <PaginationControls
+                            hasNextPage={page < totalPages}
+                            hasPrevPage={page > 1}
+                            totalCount={totalCount}
+                            totalPages={totalPages}
+                        />
+                    </div>
                 </CardContent>
             </Card>
         </div>

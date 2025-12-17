@@ -1,4 +1,3 @@
-
 import { getProjects } from './actions'
 import { getClients } from '../clients/actions'
 import { ProjectDialog } from './project-dialog'
@@ -9,16 +8,36 @@ import { Badge } from '@/components/ui/badge'
 import Link from 'next/link'
 import { Eye } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { PaginationControls } from '@/components/ui/pagination-controls'
 
-export default async function ProjectsPage() {
-    const projects = await getProjects()
-    const clients = await getClients()
+export default async function ProjectsPage({
+    searchParams,
+}: {
+    searchParams: { [key: string]: string | string[] | undefined }
+}) {
+    const page = typeof searchParams?.page === 'string' ? Number(searchParams.page) : 1
+    const limit = 10
+    const { data: projects, totalCount } = await getProjects(page, limit)
+    const clients = await getClients() // Clients dropdown usually needs ALL clients, not paginated.
+    // Wait, getClients is now paginated! Calling getClients() without args defaults to page 1 limit 10.
+    // Use Case: The ProjectDialog needs clients list to select from. 
+    // If I paginate clients, the dropdown will only show 10 clients. This is a problem.
+    // I should create a separate `getAllClients` for dropdowns, or pass specific limit.
+    // For now, let's call `getClients` with a large limit for dropdowns.
+
+    // However, I can't await inside the JSX easily if I change it later. 
+    // Let's look at `getClients` signature: `getClients(page = 1, limit = 10)`.
+    // I should call `getClients(1, 1000)` for the dropdown lists to be safe.
+
+    const { data: allClients } = await getClients(1, 1000)
+
+    const totalPages = Math.ceil(totalCount / limit)
 
     return (
         <div className="flex flex-col gap-4">
             <div className="flex items-center justify-between">
                 <h1 className="text-lg font-semibold md:text-2xl">Projects</h1>
-                <ProjectDialog clients={clients} />
+                <ProjectDialog clients={allClients} />
             </div>
             <Card>
                 <CardHeader className="px-7">
@@ -71,7 +90,7 @@ export default async function ProjectsPage() {
                                                     <Eye className="h-4 w-4" />
                                                 </Button>
                                             </Link>
-                                            <ProjectDialog clients={clients} project={project} />
+                                            <ProjectDialog clients={allClients} project={project} />
                                             <DeleteProjectButton id={project.id} />
                                         </div>
                                     </TableCell>
@@ -79,13 +98,21 @@ export default async function ProjectsPage() {
                             ))}
                             {projects.length === 0 && (
                                 <TableRow>
-                                    <TableCell colSpan={5} className="text-center py-8 text-muted-foreground">
+                                    <TableCell colSpan={6} className="text-center py-8 text-muted-foreground">
                                         No projects found.
                                     </TableCell>
                                 </TableRow>
                             )}
                         </TableBody>
                     </Table>
+                    <div className="mt-4">
+                        <PaginationControls
+                            hasNextPage={page < totalPages}
+                            hasPrevPage={page > 1}
+                            totalCount={totalCount}
+                            totalPages={totalPages}
+                        />
+                    </div>
                 </CardContent>
             </Card>
         </div>

@@ -4,9 +4,17 @@ import { Button } from '@/components/ui/button'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
 import { Trash2, Phone, Mail, MessageSquare, CheckCircle, Archive, UserCheck } from 'lucide-react'
+import { PaginationControls } from '@/components/ui/pagination-controls'
 
-export default async function LeadsPage() {
-    const leads = await getLeads()
+export default async function LeadsPage({
+    searchParams,
+}: {
+    searchParams: { [key: string]: string | string[] | undefined }
+}) {
+    const page = typeof searchParams?.page === 'string' ? Number(searchParams.page) : 1
+    const limit = 10
+    const { data: leads, totalCount } = await getLeads(page, limit)
+    const totalPages = Math.ceil(totalCount / limit)
 
     return (
         <div className="flex flex-col gap-6">
@@ -125,6 +133,14 @@ export default async function LeadsPage() {
                             )}
                         </TableBody>
                     </Table>
+                    <div className="mt-4">
+                        <PaginationControls
+                            hasNextPage={page < totalPages}
+                            hasPrevPage={page > 1}
+                            totalCount={totalCount}
+                            totalPages={totalPages}
+                        />
+                    </div>
                 </CardContent>
             </Card>
         </div>
