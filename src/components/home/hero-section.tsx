@@ -24,7 +24,7 @@ export function HeroSection() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.1 }}
-                            className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold text-white tracking-tight mb-6 leading-[1.15]"
+                            className="text-4xl md:text-5xl lg:text-[3.5rem] font-black text-white tracking-tight mb-6 leading-[1.15]"
                         >
                             Websites & Ads Built to <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-coral to-orange-400">Convert</span> — Not Just Look Good.
                         </motion.h1>
@@ -41,7 +41,7 @@ export function HeroSection() {
                                 alt="Digital Growth Strategy Illustration"
                                 width={600}
                                 height={600}
-                                className="w-full h-auto drop-shadow-2xl"
+                                className="w-full h-auto drop-shadow-2xl rounded-3xl"
                                 priority
                             />
                         </motion.div>
@@ -99,7 +99,7 @@ export function HeroSection() {
                                 alt="Digital Growth Strategy Illustration"
                                 width={800}
                                 height={800}
-                                className="w-full h-auto drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500"
+                                className="w-full h-auto drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500 rounded-3xl"
                                 priority
                             />
                         </motion.div>
