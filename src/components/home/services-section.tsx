@@ -84,7 +84,7 @@ export function ServicesSection() {
 
                         {/* Content Body */}
                         <div className="bg-white p-8 flex-grow flex flex-col border-x border-b border-slate-100 rounded-b-2xl">
-                            <p className="text-slate-600 leading-relaxed mb-8 flex-grow">{service.desc}</p>
+                            <p className="text-slate-600 leading-relaxed mb-8 flex-grow">{service.description}</p>
 
                             <Link href={service.href} className="inline-flex items-center text-brand-indigo font-bold group-hover:translate-x-2 transition-transform">
                                 {service.linkText} <ArrowRight className="ml-2 h-4 w-4" />
