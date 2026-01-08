@@ -8,7 +8,7 @@ import { CheckCircle2 } from 'lucide-react'
 
 export function HeroSection() {
     return (
-        <section className="relative pt-12 pb-24 md:pt-20 md:pb-32 overflow-hidden bg-gradient-to-br from-brand-midnight via-brand-midnight to-brand-indigo">
+        <section className="relative pt-32 pb-24 md:pt-32 md:pb-32 overflow-hidden bg-gradient-to-br from-brand-midnight via-brand-midnight to-brand-indigo">
             {/* Abstract Background Elements */}
             <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
             <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-indigo/20 rounded-full blur-3xl opacity-30 animate-pulse"></div>
