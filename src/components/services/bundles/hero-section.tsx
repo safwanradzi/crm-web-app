@@ -8,7 +8,7 @@ import { ArrowRight, CheckCircle2, TrendingUp } from 'lucide-react'
 
 export function BundleHero() {
     return (
-        <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden bg-gradient-to-br from-brand-midnight via-slate-900 to-brand-indigo">
+        <section className="relative pt-32 pb-12 md:pt-32 md:pb-20 overflow-hidden bg-gradient-to-br from-brand-midnight via-slate-900 to-brand-indigo">
             {/* Background Elements */}
             <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-indigo/30 rounded-full blur-3xl opacity-20 animate-pulse"></div>
