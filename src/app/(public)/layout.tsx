@@ -10,7 +10,7 @@ export default function PublicLayout({
     return (
         <div className="flex min-h-screen flex-col font-sans bg-white selection:bg-brand-indigo/20 selection:text-brand-indigo">
             <PublicNavbar />
-            <main className="flex-grow pt-20">
+            <main className="flex-grow">
                 {children}
             </main>
             <PublicFooter />
