@@ -19,7 +19,7 @@ export default async function PublicPortfolioPage() {
             </section>
 
             {/* Portfolio Grid */}
-            <section className="py-20 container mx-auto px-4">
+            <section className="py-20 container mx-auto px-4 max-w-6xl">
                 <PortfolioGrid items={portfolios} />
 
                 {/* CTA */}
