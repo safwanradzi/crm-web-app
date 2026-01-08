@@ -111,7 +111,7 @@ export function HeroSection() {
             </div>
 
             {/* Wave Divider */}
-            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
+            <div className="absolute -bottom-[1px] left-0 w-full overflow-hidden leading-[0] z-20">
                 <motion.div
                     animate={{ x: [-10, 10, -10] }}
                     transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}

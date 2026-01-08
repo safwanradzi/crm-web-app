@@ -13,7 +13,7 @@ const features = [
 
 export function TrustStrip() {
     return (
-        <section className="py-8 bg-white border-b border-slate-100 shadow-sm relative z-20 overflow-hidden">
+        <section className="py-8 bg-white relative z-20 overflow-hidden mt-12">
             <div className="flex w-full">
                 <motion.div
                     initial={{ x: 0 }}
