@@ -15,6 +15,7 @@ import {
 import { submitLeadAction } from './actions'
 import { Mail, Phone, CheckCircle, Loader2 } from 'lucide-react'
 import { useSearchParams } from 'next/navigation'
+import { ContactHero } from '@/components/contact/hero-section'
 
 function ContactForm() {
     const searchParams = useSearchParams()
@@ -114,14 +115,8 @@ export default function ContactPage() {
     return (
         <div className="bg-white min-h-screen">
             {/* Hero */}
-            <section className="bg-brand-midnight text-white py-20">
-                <div className="container mx-auto px-4 text-center">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-6">Ready to Build Something <span className="text-brand-indigo">Exceptional?</span></h1>
-                    <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-                        Share your objectives — we’ll recommend the ideal structure and solution.
-                    </p>
-                </div>
-            </section>
+            {/* Hero */}
+            <ContactHero />
 
             <section className="py-20 container mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">

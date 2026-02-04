@@ -13,7 +13,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-import { createQuotationAction } from './actions'
+import { createQuotationAction, updateQuotationAction } from './actions'
 import { useRouter } from 'next/navigation'
 import { Plus, Trash2, X } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -21,23 +21,29 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 interface QuotationFormProps {
     clients: any[]
     projects: any[]
-    nextQuoteNumber: string
+    initialData?: any
+    nextQuoteNumber?: string
 }
 
-export function QuotationForm({ clients, projects, nextQuoteNumber }: QuotationFormProps) {
+export function QuotationForm({ clients, projects, nextQuoteNumber, initialData }: QuotationFormProps) {
     const [loading, setLoading] = useState(false)
     const router = useRouter()
-    const [selectedClient, setSelectedClient] = useState('')
+    const [selectedClient, setSelectedClient] = useState(initialData?.client_id || '')
 
     // Dynamic Lists
-    const [scopeItems, setScopeItems] = useState<string[]>([''])
-    const [paymentTerms, setPaymentTerms] = useState<string[]>([
+    const [scopeItems, setScopeItems] = useState<string[]>(initialData?.scope_of_work || [''])
+    const [paymentTerms, setPaymentTerms] = useState<string[]>(initialData?.payment_terms || [
         '50% deposit upon confirmation.',
         '50% balance upon project completion.'
     ])
 
     // Line Items
-    const [items, setItems] = useState([{ description: '', qty: 1, unit_price: 0, line_total: 0 }])
+    const [items, setItems] = useState(initialData?.items?.map((item: any) => ({
+        description: item.description,
+        qty: item.qty,
+        unit_price: item.unit_price,
+        line_total: item.qty * item.unit_price
+    })) || [{ description: '', qty: 1, unit_price: 0, line_total: 0 }])
 
     // Handlers for Scope
     const addScope = () => setScopeItems([...scopeItems, ''])
@@ -75,13 +81,20 @@ export function QuotationForm({ clients, projects, nextQuoteNumber }: QuotationF
         setLoading(true)
         const formData = new FormData(event.currentTarget)
 
-        const result = await createQuotationAction(formData, items, scopeItems, paymentTerms)
+        let result;
+        if (initialData?.id) {
+            result = await updateQuotationAction(initialData.id, formData, items, scopeItems, paymentTerms)
+        } else {
+            result = await createQuotationAction(formData, items, scopeItems, paymentTerms)
+        }
+
         setLoading(false)
 
         if (result.error) {
             alert(result.error)
         } else {
             router.push('/dashboard/quotations')
+            router.refresh()
         }
     }
 
@@ -89,11 +102,11 @@ export function QuotationForm({ clients, projects, nextQuoteNumber }: QuotationF
         <form onSubmit={onSubmit} className="space-y-8 max-w-5xl mx-auto pb-10">
             {/* Header Info */}
             <Card>
-                <CardHeader><CardTitle>Quotation Details</CardTitle></CardHeader>
+                <CardHeader><CardTitle>{initialData ? 'Edit Quotation' : 'New Quotation'}</CardTitle></CardHeader>
                 <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                         <Label>Client</Label>
-                        <Select name="client_id" onValueChange={setSelectedClient} required>
+                        <Select name="client_id" value={selectedClient} onValueChange={setSelectedClient} required>
                             <SelectTrigger><SelectValue placeholder="Select Client" /></SelectTrigger>
                             <SelectContent>
                                 {clients.map(c => <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>)}
@@ -102,7 +115,7 @@ export function QuotationForm({ clients, projects, nextQuoteNumber }: QuotationF
                     </div>
                     <div className="space-y-2">
                         <Label>Project (Optional)</Label>
-                        <Select name="project_id" disabled={!selectedClient}>
+                        <Select name="project_id" defaultValue={initialData?.project_id || ''} disabled={!selectedClient}>
                             <SelectTrigger><SelectValue placeholder="Select Project" /></SelectTrigger>
                             <SelectContent>
                                 {projects
@@ -114,19 +127,35 @@ export function QuotationForm({ clients, projects, nextQuoteNumber }: QuotationF
                     </div>
                     <div className="space-y-2">
                         <Label>Quotation No</Label>
-                        <Input name="quote_number" defaultValue={nextQuoteNumber} required />
+                        <Input name="quote_number" defaultValue={initialData?.quote_number || nextQuoteNumber} required />
                     </div>
                     <div className="space-y-2">
                         <Label>Date</Label>
-                        <Input name="date" type="date" defaultValue={new Date().toISOString().split('T')[0]} required />
+                        <Input name="date" type="date" defaultValue={initialData?.date || new Date().toISOString().split('T')[0]} required />
                     </div>
                     <div className="space-y-2">
                         <Label>Valid Until</Label>
-                        <Input name="valid_until" type="date" />
+                        <Input name="valid_until" type="date" defaultValue={initialData?.valid_until || ''} />
+                    </div>
+                    <div className="space-y-2">
+                        <Label>Status</Label>
+                        <Select name="status" defaultValue={initialData?.status || 'draft'}>
+                            <SelectTrigger><SelectValue /></SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="draft">Draft</SelectItem>
+                                <SelectItem value="sent">Sent</SelectItem>
+                                <SelectItem value="accepted">Accepted</SelectItem>
+                                <SelectItem value="rejected">Rejected</SelectItem>
+                            </SelectContent>
+                        </Select>
                     </div>
                     <div className="space-y-2">
                         <Label>Completion Timeframe</Label>
-                        <Input name="completion_timeframe" placeholder="e.g. 5-7 working days" />
+                        <Input name="completion_timeframe" defaultValue={initialData?.completion_timeframe || ''} placeholder="e.g. 5-7 working days" />
+                    </div>
+                    <div className="col-span-1 md:col-span-2 space-y-2">
+                        <Label>Notes</Label>
+                        <Textarea name="notes" placeholder="Additional notes..." defaultValue={initialData?.notes || ''} />
                     </div>
                 </CardContent>
             </Card>
@@ -212,7 +241,7 @@ export function QuotationForm({ clients, projects, nextQuoteNumber }: QuotationF
 
             <div className="flex justify-end gap-4">
                 <Button type="button" variant="outline" onClick={() => router.back()}>Cancel</Button>
-                <Button type="submit" disabled={loading}>{loading ? 'Generating...' : 'Generate Quotation'}</Button>
+                <Button type="submit" disabled={loading}>{loading ? 'Saving...' : (initialData ? 'Update Quotation' : 'Generate Quotation')}</Button>
             </div>
         </form>
     )

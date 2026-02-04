@@ -1,20 +1,21 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { Facebook, Instagram, Linkedin, Twitter, MessageCircle } from 'lucide-react'
+import Image from 'next/image'
+import { Facebook, Instagram, Linkedin, Twitter, MessageCircle, Mail } from 'lucide-react'
 
 const footerLinks = {
     services: [
-        { label: "Website Development", href: "/services" },
+        { label: "Website Development", href: "/services/website-development" },
         { label: "Google Ads", href: "/services/google-ads" },
-        { label: "Facebook Ads", href: "/services/meta-ads" },
-        { label: "E-Commerce", href: "/services/ecommerce" },
+        { label: "Meta Ads", href: "/services/meta-ads" },
+        // { label: "Bundles", href: "/services/bundles" }, // Keeping bundles hidden if not primary, or add if requested. User list had 3 main.
     ],
     company: [
         { label: "Home", href: "/" },
         { label: "About Us", href: "/about" },
         { label: "Our Portfolio", href: "/portfolio" },
+        { label: "Process", href: "/process" },
         { label: "Contact", href: "/contact" },
     ],
     support: [
@@ -31,8 +32,14 @@ export function PublicFooter() {
 
                     {/* Column 1: Brand */}
                     <div>
-                        <Link href="/" className="inline-block text-2xl font-bold text-white mb-6">
-                            Agency<span className="text-brand-coral">.</span>
+                        <Link href="/" className="inline-block mb-6">
+                            <Image
+                                src="/logo.png"
+                                alt="SR Digital Logo"
+                                width={160}
+                                height={40}
+                                className="h-10 w-auto brightness-0 invert"
+                            />
                         </Link>
                         <p className="text-slate-400 mb-8 leading-relaxed">
                             Building conversion-focused websites and ad systems for modern businesses.
@@ -83,13 +90,20 @@ export function PublicFooter() {
                             <li className="flex items-start gap-3">
                                 <MessageCircle className="w-5 h-5 text-brand-indigo mt-1" />
                                 <div>
-                                    <div className="text-sm text-slate-500 mb-1">WhastApp Support</div>
-                                    <a href="#" className="text-white hover:text-brand-coral transition-colors">+60 12-345 6789</a>
+                                    <div className="text-sm text-slate-500 mb-1">WhatsApp / Phone</div>
+                                    <a href="https://wa.me/60186267912" target="_blank" rel="noopener noreferrer" className="text-white hover:text-brand-coral transition-colors font-medium">
+                                        +60 18-6267912
+                                    </a>
                                 </div>
                             </li>
                             <li className="flex items-start gap-3">
-                                <div className="text-sm text-slate-500 mb-1">Email Inquiry</div>
-                                <a href="mailto:hello@yourdomain.com" className="text-white hover:text-brand-coral transition-colors block">hello@yourdomain.com</a>
+                                <Mail className="w-5 h-5 text-brand-indigo mt-1" />
+                                <div>
+                                    <div className="text-sm text-slate-500 mb-1">Email Inquiry</div>
+                                    <a href="mailto:support@srdigital.com.my" className="text-white hover:text-brand-coral transition-colors block font-medium">
+                                        support@srdigital.com.my
+                                    </a>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -97,7 +111,7 @@ export function PublicFooter() {
                 </div>
 
                 <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-                    <p>&copy; {new Date().getFullYear()} Your Agency Name. All Rights Reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} SR Digital Solutions. All Rights Reserved.</p>
                     <div className="flex gap-6">
                         {footerLinks.support.map((link, i) => (
                             <Link key={i} href={link.href} className="hover:text-white transition-colors">

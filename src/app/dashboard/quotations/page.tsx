@@ -13,6 +13,7 @@ import {
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { PaginationControls } from "@/components/ui/pagination-controls"
+import { QuotationActions } from "./quotation-actions"
 
 export const dynamic = 'force-dynamic'
 
@@ -73,9 +74,7 @@ export default async function QuotationsPage({
                                         <Badge variant="outline" className="capitalize">{quote.status}</Badge>
                                     </TableCell>
                                     <TableCell className="text-right">
-                                        <Link href={`/dashboard/quotations/${quote.id}`}>
-                                            <Button variant="ghost" size="sm">View</Button>
-                                        </Link>
+                                        <QuotationActions id={quote.id} />
                                     </TableCell>
                                 </TableRow>
                             ))}

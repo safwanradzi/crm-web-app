@@ -1,19 +1,14 @@
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { ArrowRight, Layout, PenTool, Code2, SearchCheck, Rocket, HeartHandshake } from 'lucide-react'
+import { ProcessHero } from '@/components/process/hero-section'
 
 export default function ProcessPage() {
     return (
         <div className="bg-white min-h-screen">
             {/* Hero */}
-            <section className="bg-brand-midnight text-white py-20">
-                <div className="container mx-auto px-4 text-center">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-6">A Process Designed for <span className="text-brand-indigo">Precision</span></h1>
-                    <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-                        Structured, transparent and built to deliver exceptional outcomes.
-                    </p>
-                </div>
-            </section>
+            {/* Hero */}
+            <ProcessHero />
 
             {/* Steps */}
             <section className="py-20 container mx-auto px-4">

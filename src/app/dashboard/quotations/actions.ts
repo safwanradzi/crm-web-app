@@ -119,6 +119,59 @@ export async function createQuotationAction(formData: FormData, items: any[], sc
     return { success: true, id: newQuote.id }
 }
 
+export async function updateQuotationAction(id: string, formData: FormData, items: any[], scopeOfWork: any[], paymentTerms: any[]) {
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+
+    if (!user) return { error: 'Not authenticated' }
+
+    // 1. Update Quotation
+    const quotationData = {
+        client_id: formData.get('client_id'),
+        project_id: formData.get('project_id') || null,
+        quote_number: formData.get('quote_number'),
+        date: formData.get('date'),
+        valid_until: formData.get('valid_until'),
+        status: formData.get('status'),
+        completion_timeframe: formData.get('completion_timeframe'),
+        scope_of_work: scopeOfWork,
+        payment_terms: paymentTerms,
+        notes: formData.get('notes'),
+    }
+
+    const { error: quoteError } = await supabase
+        .from('quotations')
+        .update(quotationData)
+        .eq('id', id)
+
+    if (quoteError) return { error: quoteError.message }
+
+    // 2. Replace Items (Delete all and re-insert)
+    // Transaction-like behavior isn't native via client simply, but this is acceptable for MVP
+    const { error: deleteError } = await supabase
+        .from('quotation_items')
+        .delete()
+        .eq('quotation_id', id)
+
+    if (deleteError) return { error: deleteError.message }
+
+    if (items.length > 0) {
+        const itemsData = items.map((item) => ({
+            quotation_id: id,
+            description: item.description,
+            qty: item.qty,
+            unit_price: item.unit_price,
+        }))
+
+        const { error: itemsError } = await supabase.from('quotation_items').insert(itemsData)
+        if (itemsError) return { error: itemsError.message }
+    }
+
+    revalidatePath('/dashboard/quotations')
+    revalidatePath(`/dashboard/quotations/${id}`)
+    return { success: true }
+}
+
 export async function deleteQuotationAction(id: string) {
     const supabase = await createClient()
     const { error } = await supabase.from('quotations').delete().eq('id', id)

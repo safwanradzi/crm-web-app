@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Plus } from 'lucide-react'
 import Link from 'next/link'
 import { PaginationControls } from '@/components/ui/pagination-controls'
+import { InvoiceActions } from './invoice-actions'
 
 export const dynamic = 'force-dynamic'
 
@@ -70,9 +71,7 @@ export default async function InvoicesPage({
                                         {inv.total?.toFixed(2)}
                                     </TableCell>
                                     <TableCell className="text-right">
-                                        <Link href={`/dashboard/invoices/${inv.id}`}>
-                                            <Button size="sm" variant="ghost">View</Button>
-                                        </Link>
+                                        <InvoiceActions id={inv.id} />
                                     </TableCell>
                                 </TableRow>
                             ))}
