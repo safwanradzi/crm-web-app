@@ -56,7 +56,7 @@ export function PortfolioPreview({ portfolios = [] }: { portfolios?: any[] }) {
                                     <h3 className="text-white text-xl font-bold mb-2">{item.title}</h3>
                                     <p className="text-slate-300 text-sm mb-6 uppercase tracking-wider">{item.category}</p>
                                     <span className="inline-flex items-center gap-2 text-white border-b border-brand-coral pb-1 hover:text-brand-coral transition-colors">
-                                        View Case Study <ExternalLink className="w-4 h-4" />
+                                        Visit Website <ExternalLink className="w-4 h-4" />
                                     </span>
                                 </div>
                             </div>
