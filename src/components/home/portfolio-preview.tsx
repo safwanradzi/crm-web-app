@@ -55,9 +55,15 @@ export function PortfolioPreview({ portfolios = [] }: { portfolios?: any[] }) {
                                 <div className="text-center p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                                     <h3 className="text-white text-xl font-bold mb-2">{item.title}</h3>
                                     <p className="text-slate-300 text-sm mb-6 uppercase tracking-wider">{item.category}</p>
-                                    <span className="inline-flex items-center gap-2 text-white border-b border-brand-coral pb-1 hover:text-brand-coral transition-colors">
-                                        Visit Website <ExternalLink className="w-4 h-4" />
-                                    </span>
+                                    {item.url ? (
+                                        <Link href={item.url} target="_blank" className="inline-flex items-center gap-2 text-white border-b border-brand-coral pb-1 hover:text-brand-coral transition-colors">
+                                            Visit Website <ExternalLink className="w-4 h-4" />
+                                        </Link>
+                                    ) : (
+                                        <span className="inline-flex items-center gap-2 text-white/50 border-b border-white/20 pb-1 cursor-not-allowed">
+                                            Visit Website <ExternalLink className="w-4 h-4" />
+                                        </span>
+                                    )}
                                 </div>
                             </div>
                         </motion.div>
