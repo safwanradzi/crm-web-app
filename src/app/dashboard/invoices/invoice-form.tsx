@@ -71,7 +71,7 @@ export function InvoiceForm({ clients, projects, nextInvoiceNumber, initialData 
     }
 
     const removeItem = (index: number) => {
-        const newItems = items.filter((_, i) => i !== index)
+        const newItems = items.filter((_: any, i: number) => i !== index)
         setItems(newItems)
     }
 

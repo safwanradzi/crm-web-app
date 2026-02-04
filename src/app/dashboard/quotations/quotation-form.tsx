@@ -47,7 +47,7 @@ export function QuotationForm({ clients, projects, nextQuoteNumber, initialData 
 
     // Handlers for Scope
     const addScope = () => setScopeItems([...scopeItems, ''])
-    const removeScope = (i: number) => setScopeItems(scopeItems.filter((_, idx) => idx !== i))
+    const removeScope = (i: number) => setScopeItems(scopeItems.filter((_: any, idx: number) => idx !== i))
     const updateScope = (i: number, val: string) => {
         const newScopes = [...scopeItems]
         newScopes[i] = val
@@ -56,7 +56,7 @@ export function QuotationForm({ clients, projects, nextQuoteNumber, initialData 
 
     // Handlers for Payment Terms
     const addTerm = () => setPaymentTerms([...paymentTerms, ''])
-    const removeTerm = (i: number) => setPaymentTerms(paymentTerms.filter((_, idx) => idx !== i))
+    const removeTerm = (i: number) => setPaymentTerms(paymentTerms.filter((_: any, idx: number) => idx !== i))
     const updateTerm = (i: number, val: string) => {
         const newTerms = [...paymentTerms]
         newTerms[i] = val
@@ -65,7 +65,7 @@ export function QuotationForm({ clients, projects, nextQuoteNumber, initialData 
 
     // Handlers for Items
     const addItem = () => setItems([...items, { description: '', qty: 1, unit_price: 0, line_total: 0 }])
-    const removeItem = (i: number) => setItems(items.filter((_, idx) => idx !== i))
+    const removeItem = (i: number) => setItems(items.filter((_: any, idx: number) => idx !== i))
     const updateItem = (i: number, field: string, val: any) => {
         const newItems = [...items]
         // @ts-ignore
@@ -166,7 +166,7 @@ export function QuotationForm({ clients, projects, nextQuoteNumber, initialData 
                     <CardTitle>Scope of Work</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                    {scopeItems.map((scope, index) => (
+                    {scopeItems.map((scope: string, index: number) => (
                         <div key={index} className="flex gap-2">
                             <Input
                                 value={scope}
@@ -188,7 +188,7 @@ export function QuotationForm({ clients, projects, nextQuoteNumber, initialData 
             <Card>
                 <CardHeader><CardTitle>Items & Cost</CardTitle></CardHeader>
                 <CardContent className="space-y-4">
-                    {items.map((item, index) => (
+                    {items.map((item: any, index: number) => (
                         <div key={index} className="grid grid-cols-12 gap-2 items-end">
                             <div className="col-span-6">
                                 <Label className="text-xs">Description</Label>
@@ -221,7 +221,7 @@ export function QuotationForm({ clients, projects, nextQuoteNumber, initialData 
                     <CardTitle>Payment Terms</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                    {paymentTerms.map((term, index) => (
+                    {paymentTerms.map((term: string, index: number) => (
                         <div key={index} className="flex gap-2">
                             <Input
                                 value={term}
