@@ -36,15 +36,15 @@ export function BundleHero() {
                             Website + Ads Bundles Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-coral to-orange-400">Faster Growth</span>
                         </h1>
 
-                        <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light">
+                        <p className="text-base sm:text-lg md:text-xl text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light">
                             Instead of hiring separate vendors for websites and ads, we combine both into a single, performance-focused growth package: fully aligned, fully accountable.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <Button asChild size="lg" className="h-14 px-8 text-lg bg-brand-coral hover:bg-orange-600 text-white shadow-lg shadow-orange-900/20 rounded-full transition-all hover:scale-[1.02] border-0">
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full">
+                            <Button asChild size="lg" className="w-full sm:w-auto h-14 px-8 text-lg bg-brand-coral hover:bg-orange-600 text-white shadow-lg shadow-orange-900/20 rounded-full transition-all hover:scale-[1.02] border-0">
                                 <Link href="/contact">Get Free Growth Consultation</Link>
                             </Button>
-                            <Button asChild size="lg" variant="outline" className="h-14 px-8 text-lg border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white hover:text-brand-midnight rounded-full transition-all hover:scale-[1.02]">
+                            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto h-14 px-8 text-lg border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white hover:text-brand-midnight rounded-full transition-all hover:scale-[1.02]">
                                 <Link href="#bundles">View Bundle Packages</Link>
                             </Button>
                         </div>

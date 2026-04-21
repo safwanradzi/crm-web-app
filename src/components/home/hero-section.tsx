@@ -37,14 +37,14 @@ export function HeroSection() {
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            className="relative w-full mb-8 lg:hidden block"
+                            className="relative w-full max-w-[85%] sm:max-w-md mx-auto mb-8 lg:hidden flex justify-center items-center"
                         >
                             <Image
                                 src="/hero-illustration.png"
                                 alt="Digital Growth Strategy Illustration"
                                 width={600}
                                 height={600}
-                                className="w-full h-auto drop-shadow-2xl rounded-3xl"
+                                className="w-[100%] max-w-[400px] h-auto drop-shadow-2xl rounded-3xl object-contain mx-auto"
                                 priority
                             />
                         </motion.div>
@@ -53,7 +53,7 @@ export function HeroSection() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            className="text-lg md:text-xl text-indigo-100 mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0 font-light"
+                            className="text-base sm:text-lg md:text-xl text-indigo-100 mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0 font-light"
                         >
                             {t('description')}
                         </motion.p>
@@ -62,12 +62,12 @@ export function HeroSection() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.3 }}
-                            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10"
+                            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10 w-full"
                         >
-                            <Button asChild size="lg" className="h-14 px-8 text-lg bg-brand-coral hover:bg-orange-600 text-white shadow-lg shadow-orange-900/20 rounded-full transition-all hover:scale-[1.02] border-0">
+                            <Button asChild size="lg" className="w-full sm:w-auto h-14 px-8 text-lg bg-brand-coral hover:bg-orange-600 text-white shadow-lg shadow-orange-900/20 rounded-full transition-all hover:scale-[1.02] border-0">
                                 <Link href="https://wa.me/60186267912?text=Hi%2C%20I%27m%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer">{t('ctaPrimary')}</Link>
                             </Button>
-                            <Button asChild size="lg" variant="outline" className="h-14 px-8 text-lg border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white hover:text-brand-midnight rounded-full transition-all hover:scale-[1.02]">
+                            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto h-14 px-8 text-lg border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white hover:text-brand-midnight rounded-full transition-all hover:scale-[1.02]">
                                 <Link href="/portfolio">{t('ctaSecondary')}</Link>
                             </Button>
                         </motion.div>

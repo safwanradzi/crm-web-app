@@ -37,7 +37,7 @@ export function AboutHero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="text-lg md:text-xl text-indigo-100 mb-10 leading-relaxed max-w-2xl mx-auto font-light"
+                    className="text-base sm:text-lg md:text-xl text-indigo-100 mb-10 leading-relaxed max-w-2xl mx-auto font-light"
                 >
                     We are a digital agency dedicated to helping businesses scale through data-driven design and performance marketing.
                 </motion.p>

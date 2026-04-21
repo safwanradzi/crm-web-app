@@ -129,7 +129,7 @@ export function DifferentiationSection() {
                             <motion.div
                                 animate={{ y: [0, -10, 0] }}
                                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute -bottom-8 -right-8 z-20 bg-white text-brand-midnight p-4 rounded-xl shadow-xl border border-slate-100"
+                                className="absolute -bottom-12 -right-2 md:-bottom-8 md:-right-8 z-20 bg-white text-brand-midnight p-4 rounded-xl shadow-xl border border-slate-100"
                             >
                                 <div className="text-xs opacity-70 mb-1">{t('badge1')}</div>
                                 <div className="font-bold flex items-center gap-2">
