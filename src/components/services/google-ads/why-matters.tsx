@@ -2,15 +2,18 @@
 
 import { motion } from 'framer-motion'
 import { CheckCircle2, XCircle } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
-const painPoints = [
-    "Spending money but getting low-quality clicks",
-    "Ads showing for irrelevant search terms",
-    "No clear tracking of leads or sales",
-    "Campaigns running without optimization"
+const getPainPoints = (t: any) => [
+    t('p1'),
+    t('p2'),
+    t('p3'),
+    t('p4')
 ]
 
 export function AdsWhyMatters() {
+    const t = useTranslations('GoogleAds.problem')
+    const painPoints = getPainPoints(t)
     return (
         <section className="py-12 bg-white">
             <div className="container mx-auto px-4 max-w-6xl">
@@ -18,8 +21,8 @@ export function AdsWhyMatters() {
 
                     {/* Left: Pain */}
                     <div>
-                        <span className="text-red-500 font-bold uppercase tracking-widest text-sm mb-3 block">The Problem</span>
-                        <h2 className="text-3xl md:text-4xl font-extrabold text-brand-midnight mb-8">Google Ads Works — <br /> When It’s Done Right</h2>
+                        <span className="text-red-500 font-bold uppercase tracking-widest text-sm mb-3 block">{t('probLabel')}</span>
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-brand-midnight mb-8" dangerouslySetInnerHTML={{ __html: t('probHeadline') }} />
 
                         <div className="space-y-4 mb-8">
                             {painPoints.map((point, i) => (
@@ -48,24 +51,24 @@ export function AdsWhyMatters() {
                         {/* Background Accent */}
                         <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-3xl opacity-20 -translate-y-1/2 translate-x-1/2"></div>
 
-                        <span className="text-blue-400 font-bold uppercase tracking-widest text-sm mb-4 block">The Solution</span>
-                        <h3 className="text-2xl font-bold mb-6">Precision at the Perfect Moment</h3>
+                        <span className="text-blue-400 font-bold uppercase tracking-widest text-sm mb-4 block">{t('solLabel')}</span>
+                        <h3 className="text-2xl font-bold mb-6">{t('solHeadline')}</h3>
                         <p className="text-indigo-100 text-lg leading-relaxed mb-8">
-                            Google Ads connects your business with customers at the exact moment they are searching. We ensure your ads appear for the right keywords, with the right message, and are continuously optimized for performance.
+                            {t('solDesc')}
                         </p>
 
                         <div className="space-y-3">
                             <div className="flex items-center gap-3">
                                 <CheckCircle2 className="w-5 h-5 text-green-400" />
-                                <span className="font-medium">Right Keywords</span>
+                                <span className="font-medium">{t('s1')}</span>
                             </div>
                             <div className="flex items-center gap-3">
                                 <CheckCircle2 className="w-5 h-5 text-green-400" />
-                                <span className="font-medium">Compelling Ad Copy</span>
+                                <span className="font-medium">{t('s2')}</span>
                             </div>
                             <div className="flex items-center gap-3">
                                 <CheckCircle2 className="w-5 h-5 text-green-400" />
-                                <span className="font-medium">Continuous Optimization</span>
+                                <span className="font-medium">{t('s3')}</span>
                             </div>
                         </div>
                     </motion.div>

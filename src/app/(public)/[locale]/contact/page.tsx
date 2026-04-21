@@ -16,9 +16,12 @@ import { submitLeadAction } from './actions'
 import { Mail, Phone, CheckCircle, Loader2 } from 'lucide-react'
 import { useSearchParams } from 'next/navigation'
 import { ContactHero } from '@/components/contact/hero-section'
+import { useTranslations } from 'next-intl'
 
 function ContactForm() {
     const searchParams = useSearchParams()
+    const tForm = useTranslations('Contact.form')
+    const tSuccess = useTranslations('Contact.success')
     const preselectedService = searchParams.get('p') // e.g. 'landing', 'corporate'
 
     const [loading, setLoading] = useState(false)
@@ -45,12 +48,12 @@ function ContactForm() {
                 <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
                     <CheckCircle className="h-8 w-8" />
                 </div>
-                <h2 className="text-2xl font-bold text-brand-midnight mb-2">Message Sent!</h2>
+                <h2 className="text-2xl font-bold text-brand-midnight mb-2">{tSuccess('headline')}</h2>
                 <p className="text-slate-600 mb-6">
-                    Thank you for reaching out. We have received your inquiry and will get back to you within 24 hours.
+                    {tSuccess('message')}
                 </p>
                 <Button onClick={() => setSuccess(false)} variant="outline">
-                    Send Another Message
+                    {tSuccess('btn')}
                 </Button>
             </div>
         )
@@ -58,53 +61,53 @@ function ContactForm() {
 
     return (
         <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
-            <h2 className="text-2xl font-bold text-brand-midnight mb-6">Send us a Message</h2>
+            <h2 className="text-2xl font-bold text-brand-midnight mb-6">{tForm('headline')}</h2>
             <form onSubmit={onSubmit} className="space-y-6">
                 <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                        <Label htmlFor="name">Name</Label>
-                        <Input id="name" name="name" placeholder="Your Name" required />
+                        <Label htmlFor="name">{tForm('lName')}</Label>
+                        <Input id="name" name="name" placeholder={tForm('pName')} required />
                     </div>
                     <div className="space-y-2">
-                        <Label htmlFor="phone">Phone</Label>
-                        <Input id="phone" name="phone" placeholder="+60..." />
+                        <Label htmlFor="phone">{tForm('lPhone')}</Label>
+                        <Input id="phone" name="phone" placeholder={tForm('pPhone')} />
                     </div>
                 </div>
 
                 <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" name="email" type="email" placeholder="you@company.com" required />
+                    <Label htmlFor="email">{tForm('lEmail')}</Label>
+                    <Input id="email" name="email" type="email" placeholder={tForm('pEmail')} required />
                 </div>
 
                 <div className="space-y-2">
-                    <Label htmlFor="service">Interested Service</Label>
+                    <Label htmlFor="service">{tForm('lService')}</Label>
                     <Select name="service_interest" defaultValue={preselectedService || undefined}>
                         <SelectTrigger>
-                            <SelectValue placeholder="Select a service..." />
+                            <SelectValue placeholder={tForm('pService')} />
                         </SelectTrigger>
                         <SelectContent>
-                            <SelectItem value="landing">Landing Page (RM499)</SelectItem>
-                            <SelectItem value="corporate">Corporate Website (RM1,499)</SelectItem>
-                            <SelectItem value="ecommerce">E-Commerce Store (RM1,899)</SelectItem>
-                            <SelectItem value="custom">Custom Project</SelectItem>
-                            <SelectItem value="other">Other Inquiry</SelectItem>
+                            <SelectItem value="landing">{tForm('opt1')}</SelectItem>
+                            <SelectItem value="corporate">{tForm('opt2')}</SelectItem>
+                            <SelectItem value="ecommerce">{tForm('opt3')}</SelectItem>
+                            <SelectItem value="custom">{tForm('opt4')}</SelectItem>
+                            <SelectItem value="other">{tForm('opt5')}</SelectItem>
                         </SelectContent>
                     </Select>
                 </div>
 
                 <div className="space-y-2">
-                    <Label htmlFor="message">Project Details</Label>
+                    <Label htmlFor="message">{tForm('lMessage')}</Label>
                     <Textarea
                         id="message"
                         name="message"
-                        placeholder="Tell us about your business goals..."
+                        placeholder={tForm('pMessage')}
                         className="min-h-[120px]"
                     />
                 </div>
 
                 <Button type="submit" size="lg" className="w-full bg-brand-indigo hover:bg-indigo-700 h-12 text-lg" disabled={loading}>
                     {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                    {loading ? 'Sending...' : 'Send Message'}
+                    {loading ? tForm('btnLoading') : tForm('btnSubmit')}
                 </Button>
             </form>
         </div>
@@ -112,6 +115,8 @@ function ContactForm() {
 }
 
 export default function ContactPage() {
+    const tAbout = useTranslations('Contact.about')
+
     return (
         <div className="bg-white min-h-screen">
             {/* Hero */}
@@ -124,9 +129,9 @@ export default function ContactPage() {
                     {/* Contact Info & About */}
                     <div className="space-y-8">
                         <div>
-                            <h2 className="text-2xl font-bold text-brand-midnight mb-4">About SR Digital Solutions</h2>
+                            <h2 className="text-2xl font-bold text-brand-midnight mb-4">{tAbout('headline')}</h2>
                             <p className="text-slate-600 leading-relaxed">
-                                SR Digital Solutions is a boutique design-first studio dedicated to creating digital assets that accelerate business growth. Our approach blends aesthetic clarity with strategic functionality — ensuring every website not only looks exceptional but performs with purpose.
+                                {tAbout('description')}
                             </p>
                         </div>
 
@@ -136,8 +141,8 @@ export default function ContactPage() {
                                     <Mail className="h-6 w-6" />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-brand-midnight">Email Us</h3>
-                                    <p className="text-slate-600">support@srdigital.com.my</p>
+                                    <h3 className="font-bold text-brand-midnight">{tAbout('emailTitle')}</h3>
+                                    <p className="text-slate-600"><a href="mailto:support@srdigital.com.my" className="hover:text-brand-indigo transition-colors">support@srdigital.com.my</a></p>
                                 </div>
                             </div>
                             <div className="flex items-start gap-4">
@@ -145,7 +150,7 @@ export default function ContactPage() {
                                     <Phone className="h-6 w-6" />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-brand-midnight">WhatsApp / Phone</h3>
+                                    <h3 className="font-bold text-brand-midnight">{tAbout('phoneTitle')}</h3>
                                     <p className="text-slate-600">018-6267912</p>
                                 </div>
                             </div>

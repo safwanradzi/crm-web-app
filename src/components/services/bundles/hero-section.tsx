@@ -37,7 +37,7 @@ export function BundleHero() {
                         </h1>
 
                         <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light">
-                            Instead of hiring separate vendors for websites and ads, we combine both into a single, performance-focused growth package — fully aligned, fully accountable.
+                            Instead of hiring separate vendors for websites and ads, we combine both into a single, performance-focused growth package: fully aligned, fully accountable.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

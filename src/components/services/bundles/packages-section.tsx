@@ -31,7 +31,7 @@ const packages = [
         setupPrice: "3,299",
         monthlyPrice: "2,500",
         features: [
-            "Multi-page website (up to 5 pages) — RM 1,899 value",
+            "Multi-page website (up to 5 pages) RM 1,899 value",
             "Google Ads OR Facebook Ads management",
             "Up to 3 campaigns",
             "Funnel-based structure",

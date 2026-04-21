@@ -1,5 +1,4 @@
-
-import { getPublicPortfolios } from './portfolio/actions'
+import { getPublicPortfolios } from '@/app/(public)/[locale]/portfolio/actions'
 import { HeroSection } from '@/components/home/hero-section'
 import { TrustStrip } from '@/components/home/trust-strip'
 import { ServicesSection } from '@/components/home/services-section'

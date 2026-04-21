@@ -2,37 +2,40 @@
 
 import { motion } from 'framer-motion'
 import { Target, Zap, AlertTriangle, TrendingUp } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
-const audienceList = [
+const getAudienceList = (t: any) => [
     {
         icon: <Target className="w-8 h-8 text-brand-indigo" />,
-        title: "Brands needing leads",
-        description: "that want to generate consistent leads or sales."
+        title: t('a1Title'),
+        description: t('a1Desc')
     },
     {
         icon: <Zap className="w-8 h-8 text-blue-500" />,
-        title: "Launching new offers",
-        description: "businesses launching new products or offers to the market."
+        title: t('a2Title'),
+        description: t('a2Desc')
     },
     {
         icon: <AlertTriangle className="w-8 h-8 text-brand-coral" />,
-        title: "Struggling with fatigue",
-        description: "companies struggling with ad fatigue or poor creatives."
+        title: t('a3Title'),
+        description: t('a3Desc')
     },
     {
         icon: <TrendingUp className="w-8 h-8 text-purple-500" />,
-        title: "Ready to scale",
-        description: "businesses ready to scale with paid social traffic."
+        title: t('a4Title'),
+        description: t('a4Desc')
     }
 ]
 
 export function MetaWhoIsFor() {
+    const t = useTranslations('MetaAds.who')
+    const audienceList = getAudienceList(t)
     return (
         <section className="py-12 bg-slate-50">
             <div className="container mx-auto px-4 max-w-6xl">
                 <div className="text-center mb-12">
-                    <span className="text-brand-indigo font-bold uppercase tracking-widest text-sm mb-3 block">Target Audience</span>
-                    <h2 className="text-3xl font-extrabold text-brand-midnight">This Service Is Ideal For:</h2>
+                    <span className="text-brand-indigo font-bold uppercase tracking-widest text-sm mb-3 block">{t('label')}</span>
+                    <h2 className="text-3xl font-extrabold text-brand-midnight">{t('headline')}</h2>
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

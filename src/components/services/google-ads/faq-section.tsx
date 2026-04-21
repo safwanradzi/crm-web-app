@@ -6,29 +6,30 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
+import { useTranslations } from 'next-intl'
 
-const faqs = [
-    {
-        q: "How soon can I see results?",
-        a: "Initial data can be seen within the first 7–14 days. Performance improves with ongoing optimization."
-    },
-    {
-        q: "Do you guarantee results?",
-        a: "We do not promise unrealistic numbers, but we focus on continuous improvement and transparency."
-    },
-    {
-        q: "Do you manage ad budget?",
-        a: "Yes, we advise and optimize based on your allocated ad spend. Note that ad spend is paid directly to Google, separate from our management fee."
-    }
+const getFaqs = (t: any) => [
+    { q: t('q1'), a: t('a1') },
+    { q: t('q2'), a: t('a2') },
+    { q: t('q3'), a: t('a3') },
+    { q: t('q4'), a: t('a4') },
+    { q: t('q5'), a: t('a5') },
+    { q: t('q6'), a: t('a6') },
+    { q: t('q7'), a: t('a7') },
+    { q: t('q8'), a: t('a8') },
+    { q: t('q9'), a: t('a9') },
+    { q: t('q10'), a: t('a10') }
 ]
 
 export function AdsFAQSection() {
+    const t = useTranslations('GoogleAds.faq')
+    const faqs = getFaqs(t)
     return (
         <section className="py-12 bg-slate-50">
             <div className="container mx-auto px-4 max-w-3xl">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-extrabold text-brand-midnight mb-4">Frequently Asked Questions</h2>
-                    <p className="text-slate-600">Addressing common concerns before we start.</p>
+                    <h2 className="text-3xl font-extrabold text-brand-midnight mb-4">{t('headline')}</h2>
+                    <p className="text-slate-600">{t('subtitle')}</p>
                 </div>
 
                 <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">

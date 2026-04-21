@@ -2,16 +2,20 @@
 
 import { motion } from 'framer-motion'
 import { Rocket, ShieldCheck, Zap, Smartphone, TrendingUp } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
-const features = [
-    { name: "Conversion-Focused Strategy", icon: <TrendingUp className="w-5 h-5 text-brand-indigo" /> },
-    { name: "Transparent Pricing", icon: <ShieldCheck className="w-5 h-5 text-brand-indigo" /> },
-    { name: "Fast Turnaround", icon: <Zap className="w-5 h-5 text-brand-indigo" /> },
-    { name: "Mobile & Ads Ready", icon: <Smartphone className="w-5 h-5 text-brand-indigo" /> },
-    { name: "Performance Mindset", icon: <Rocket className="w-5 h-5 text-brand-indigo" /> },
+const getFeatures = (t: any) => [
+    { name: t('f1'), icon: <TrendingUp className="w-5 h-5 text-brand-indigo" /> },
+    { name: t('f2'), icon: <ShieldCheck className="w-5 h-5 text-brand-indigo" /> },
+    { name: t('f3'), icon: <Zap className="w-5 h-5 text-brand-indigo" /> },
+    { name: t('f4'), icon: <Smartphone className="w-5 h-5 text-brand-indigo" /> },
+    { name: t('f5'), icon: <Rocket className="w-5 h-5 text-brand-indigo" /> },
 ]
 
 export function TrustStrip() {
+    const t = useTranslations('Home.trustStrip')
+    const features = getFeatures(t)
+
     return (
         <section className="py-8 bg-white relative z-20 overflow-hidden mt-12">
             <div className="flex w-full">

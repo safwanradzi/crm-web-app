@@ -1,10 +1,13 @@
 'use client'
 
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
+import { useTranslations } from 'next-intl'
 
 export function CTASection() {
+    const t = useTranslations('Home.cta')
+
     return (
         <section className="py-24 bg-gradient-to-br from-brand-indigo to-brand-soft-blue relative overflow-hidden">
             {/* Abstract Background Shapes */}
@@ -19,10 +22,10 @@ export function CTASection() {
                     className="max-w-4xl mx-auto"
                 >
                     <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
-                        Ready to Scale Your Business <br className="hidden md:block" /> with a Proven Digital Strategy?
+                        {t('headline')} <br className="hidden md:block" /> {t('headlineBr')}
                     </h2>
                     <p className="text-indigo-100 text-xl mb-10 max-w-2xl mx-auto">
-                        Tell us your goals — we’ll build the perfect roadmap for growth, from high-converting websites to profitable ad campaigns.
+                        {t('desc')}
                     </p>
 
                     <motion.div
@@ -31,12 +34,12 @@ export function CTASection() {
                         className="inline-block"
                     >
                         <Button asChild size="lg" className="h-16 px-12 text-lg bg-white text-brand-indigo hover:bg-slate-50 hover:shadow-2xl font-bold rounded-full border-4 border-transparent hover:border-indigo-100 bg-clip-padding">
-                            <Link href="/contact">Book a Free Consultation</Link>
+                            <Link href="https://wa.me/60186267912?text=Hi%2C%20I%27m%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer">{t('btn')}</Link>
                         </Button>
                     </motion.div>
 
                     <p className="mt-6 text-indigo-200 text-sm font-medium opacity-80">
-                        No pressure. Clear pricing. Quick response.
+                        {t('footer')}
                     </p>
                 </motion.div>
             </div>

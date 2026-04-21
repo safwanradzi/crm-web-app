@@ -6,33 +6,32 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
+import { useTranslations } from 'next-intl'
 
-const faqs = [
-    {
-        q: "How long does it take?",
-        a: "Landing pages typically take 5–7 working days. Multi-page and eCommerce websites depend on the project scope, usually 2-4 weeks."
-    },
-    {
-        q: "Do you provide content?",
-        a: "Yes, we structure and guide the copywriting to ensure clarity and conversion. We don't just ask you to 'fill in the blanks'—we help you sell your story."
-    },
-    {
-        q: "Can I upgrade later?",
-        a: "Absolutely. All our websites are built on scalable frameworks, so you can start with a Landing Page and expand to a full Multi-Page site as you grow."
-    },
-    {
-        q: "Is SEO included?",
-        a: "All packages include basic technical SEO setup (meta tags, fast loading speeds, sitemaps). For advanced ongoing SEO campaigns, we offer separate monthly services."
-    }
+const getFaqs = (t: any) => [
+    { q: t('q1'), a: t('a1') },
+    { q: t('q2'), a: t('a2') },
+    { q: t('q3'), a: t('a3') },
+    { q: t('q4'), a: t('a4') },
+    { q: t('q5'), a: t('a5') },
+    { q: t('q6'), a: t('a6') },
+    { q: t('q7'), a: t('a7') },
+    { q: t('q8'), a: t('a8') },
+    { q: t('q9'), a: t('a9') },
+    { q: t('q10'), a: t('a10') },
+    { q: t('q11'), a: t('a11') },
+    { q: t('q12'), a: t('a12') }
 ]
 
 export function FAQSection() {
+    const t = useTranslations('WebDev.faq')
+    const faqs = getFaqs(t)
     return (
         <section className="py-12 bg-slate-50">
             <div className="container mx-auto px-4 max-w-3xl">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-extrabold text-brand-midnight mb-4">Frequently Asked Questions</h2>
-                    <p className="text-slate-600">Addressing common concerns before we start.</p>
+                    <h2 className="text-3xl font-extrabold text-brand-midnight mb-4">{t('headline')}</h2>
+                    <p className="text-slate-600">{t('subtitle')}</p>
                 </div>
 
                 <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">

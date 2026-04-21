@@ -2,15 +2,18 @@
 
 import { motion } from 'framer-motion'
 import { CheckCircle2, XCircle } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
-const painPoints = [
-    "Ads get clicks but no conversions",
-    "Wrong audience targeting",
-    "Creatives burn out too quickly",
-    "No clear funnel or follow-up strategy"
+const getPainPoints = (t: any) => [
+    t('p1'),
+    t('p2'),
+    t('p3'),
+    t('p4')
 ]
 
 export function MetaWhyMatters() {
+    const t = useTranslations('MetaAds.problem')
+    const painPoints = getPainPoints(t)
     return (
         <section className="py-12 bg-white">
             <div className="container mx-auto px-4 max-w-6xl">
@@ -18,8 +21,8 @@ export function MetaWhyMatters() {
 
                     {/* Left: Pain */}
                     <div>
-                        <span className="text-red-500 font-bold uppercase tracking-widest text-sm mb-3 block">The Problem</span>
-                        <h2 className="text-3xl md:text-4xl font-extrabold text-brand-midnight mb-8">Facebook Ads Work &mdash; <br /> When Strategy Meets Creative</h2>
+                        <span className="text-red-500 font-bold uppercase tracking-widest text-sm mb-3 block">{t('probLabel')}</span>
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-brand-midnight mb-8" dangerouslySetInnerHTML={{ __html: t('probHeadline') }} />
 
                         <div className="space-y-4 mb-8">
                             {painPoints.map((point, i) => (
@@ -48,24 +51,24 @@ export function MetaWhyMatters() {
                         {/* Background Accent */}
                         <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600 rounded-full blur-3xl opacity-20 -translate-y-1/2 translate-x-1/2"></div>
 
-                        <span className="text-purple-400 font-bold uppercase tracking-widest text-sm mb-4 block">The Solution</span>
-                        <h3 className="text-2xl font-bold mb-6">Targeting + Creative = Results</h3>
+                        <span className="text-purple-400 font-bold uppercase tracking-widest text-sm mb-4 block">{t('solLabel')}</span>
+                        <h3 className="text-2xl font-bold mb-6">{t('solHeadline')}</h3>
                         <p className="text-indigo-100 text-lg leading-relaxed mb-8">
-                            Facebook and Instagram Ads allow you to reach your ideal customers based on interests, behavior, and intent. We combine audience strategy, compelling creatives, and continuous optimization to turn attention into measurable results.
+                            {t('solDesc')}
                         </p>
 
                         <div className="space-y-3">
                             <div className="flex items-center gap-3">
                                 <CheckCircle2 className="w-5 h-5 text-green-400" />
-                                <span className="font-medium">Audience Strategy</span>
+                                <span className="font-medium">{t('s1')}</span>
                             </div>
                             <div className="flex items-center gap-3">
                                 <CheckCircle2 className="w-5 h-5 text-green-400" />
-                                <span className="font-medium">Compelling Creatives</span>
+                                <span className="font-medium">{t('s2')}</span>
                             </div>
                             <div className="flex items-center gap-3">
                                 <CheckCircle2 className="w-5 h-5 text-green-400" />
-                                <span className="font-medium">Continuous Optimization</span>
+                                <span className="font-medium">{t('s3')}</span>
                             </div>
                         </div>
                     </motion.div>

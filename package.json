@@ -28,6 +28,7 @@
     "framer-motion": "^12.24.10",
     "lucide-react": "^0.556.0",
     "next": "16.0.8",
+    "next-intl": "^4.9.1",
     "react": "19.2.1",
     "react-dom": "19.2.1",
     "recharts": "^3.5.1",

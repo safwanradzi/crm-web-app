@@ -2,16 +2,19 @@
 
 import { motion } from 'framer-motion'
 import { CheckCircle } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
-const reasons = [
-    { title: "Strategy-first, not template guessing", desc: "We plan before we build." },
-    { title: "Built for ads & traffic conversion", desc: "Ready for Facebook & Google Ads." },
-    { title: "Clear messaging and CTA placement", desc: "Guide visitors to buy." },
-    { title: "Fast-loading & mobile-first", desc: "Rank better on Google." },
-    { title: "Scalable structure", desc: "Grow as your business grows." }
+const getReasons = (t: any) => [
+    { title: t('d1Title'), desc: t('d1Desc') },
+    { title: t('d2Title'), desc: t('d2Desc') },
+    { title: t('d3Title'), desc: t('d3Desc') },
+    { title: t('d4Title'), desc: t('d4Desc') },
+    { title: t('d5Title'), desc: t('d5Desc') }
 ]
 
 export function Differentiators() {
+    const t = useTranslations('WebDev.diff')
+    const reasons = getReasons(t)
     return (
         <section className="py-12 bg-brand-midnight text-white relative overflow-hidden">
             {/* Background Art */}
@@ -19,8 +22,8 @@ export function Differentiators() {
 
             <div className="container mx-auto px-4 max-w-5xl relative z-10">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Why Clients Choose Us</h2>
-                    <p className="text-indigo-200">We don’t just deliver code. We deliver results.</p>
+                    <h2 className="text-3xl md:text-4xl font-extrabold mb-4">{t('headline')}</h2>
+                    <p className="text-indigo-200">{t('subtitle')}</p>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">

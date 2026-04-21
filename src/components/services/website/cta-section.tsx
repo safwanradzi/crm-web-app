@@ -1,10 +1,13 @@
 'use client'
 
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
+import { useTranslations } from 'next-intl'
 
 export function WebsiteCTA() {
+    const t = useTranslations('WebDev.cta')
+
     return (
         <section className="py-16 bg-gradient-to-br from-brand-indigo to-blue-600 relative overflow-hidden text-center">
             {/* Background Effects */}
@@ -17,19 +20,20 @@ export function WebsiteCTA() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
-                        Ready to Build a Website <br /> That Actually Works?
-                    </h2>
+                    <h2 
+                        className="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight"
+                        dangerouslySetInnerHTML={{ __html: t('headline') }}
+                    />
                     <p className="text-indigo-100 text-xl mb-10 max-w-2xl mx-auto">
-                        Let’s discuss your goals and recommend the right website package for your business.
+                        {t('subtitle')}
                     </p>
 
                     <Button asChild size="lg" className="h-16 px-12 text-lg bg-white text-brand-indigo hover:bg-slate-50 font-bold rounded-full shadow-xl transition-all hover:scale-[1.02]">
-                        <Link href="/contact">Book Free Website Consultation</Link>
+                        <Link href="/contact">{t('btn')}</Link>
                     </Button>
 
                     <p className="mt-6 text-indigo-200 text-sm font-medium opacity-80">
-                        No pressure. Clear pricing. Fast response.
+                        {t('footer')}
                     </p>
                 </motion.div>
             </div>

@@ -12,16 +12,19 @@ import {
 import { Menu, X, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { usePathname } from 'next/navigation'
-
-const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'Services', href: '/services' },
-    { name: 'Portfolio', href: '/portfolio' },
-    { name: 'Process', href: '/process' },
-    { name: 'About & Contact', href: '/contact' },
-]
-
+import { useTranslations } from 'next-intl'
+import { LanguageSwitcher } from './language-switcher'
 export function PublicNavbar() {
+    const t = useTranslations('Navbar')
+    
+    const navLinks = [
+        { name: t('home', { fallback: 'Home' }), href: '/' },
+        { name: t('services'), href: '/services' },
+        { name: t('portfolio'), href: '/portfolio' },
+        { name: t('process'), href: '/process' },
+        { name: t('contact'), href: '/contact' },
+    ]
+
     const [isOpen, setIsOpen] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false)
     const pathname = usePathname()
@@ -60,11 +63,11 @@ export function PublicNavbar() {
                     {/* Desktop Menu */}
                     <div className="hidden md:flex space-x-8 items-center">
                         {navLinks.map((link) => {
-                            if (link.name === 'Services') {
+                            if (link.href === '/services') {
                                 return (
                                     <DropdownMenu key={link.name}>
                                         <DropdownMenuTrigger className={`flex items-center gap-1 text-sm font-medium focus:outline-none transition-colors ${textColor} ${hoverColor} data-[state=open]:text-brand-indigo`}>
-                                            Services <ChevronDown className="h-4 w-4" />
+                                            {link.name} <ChevronDown className="h-4 w-4" />
                                         </DropdownMenuTrigger>
                                         <DropdownMenuContent align="center" className="w-56 bg-white shadow-lg border-slate-100 p-2">
                                             <DropdownMenuItem asChild>
@@ -100,10 +103,16 @@ export function PublicNavbar() {
                         <Button asChild variant={isScrolled ? "outline" : "default"} className={`ml-4 transition-all ${isScrolled ? 'border-brand-indigo text-brand-indigo hover:bg-brand-indigo hover:text-white' : 'bg-white text-brand-midnight hover:bg-indigo-50 border-0'}`}>
                             <Link href="/portal/login">Client Login</Link>
                         </Button>
+                        <div className={`ml-2 ${textColor}`}>
+                            <LanguageSwitcher />
+                        </div>
                     </div>
 
                     {/* Mobile Menu Button */}
-                    <div className="md:hidden flex items-center">
+                    <div className="md:hidden flex items-center gap-2">
+                        <div className={textColor}>
+                            <LanguageSwitcher />
+                        </div>
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className={`focus:outline-none ${isScrolled ? 'text-slate-600 hover:text-brand-midnight' : 'text-white hover:text-indigo-200'}`}
@@ -120,9 +129,9 @@ export function PublicNavbar() {
                     <div className="px-4 pt-4 pb-6 space-y-2">
                         {navLinks.map((link) => (
                             <React.Fragment key={link.name}>
-                                {link.name === 'Services' ? (
+                                {link.href === '/services' ? (
                                     <div className="space-y-2">
-                                        <div className="px-3 py-2 text-base font-medium text-slate-600">Services</div>
+                                        <div className="px-3 py-2 text-base font-medium text-slate-600">{link.name}</div>
                                         <div className="pl-6 space-y-2 border-l-2 border-slate-100 ml-3">
                                             <Link
                                                 href="/services/website-development"

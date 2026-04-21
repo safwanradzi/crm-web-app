@@ -2,8 +2,11 @@
 
 import { motion } from 'framer-motion'
 import { Settings, GitMerge } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 export function ProcessHero() {
+    const t = useTranslations('Process.hero')
+
     return (
         <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden bg-gradient-to-br from-brand-midnight via-brand-midnight to-brand-indigo">
             {/* Abstract Background Elements */}
@@ -20,7 +23,7 @@ export function ProcessHero() {
                 >
                     <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-indigo-300 text-sm font-medium flex items-center gap-2 backdrop-blur-sm">
                         <Settings className="w-4 h-4" />
-                        Our Methodology
+                        {t('subtitle')}
                     </span>
                 </motion.div>
 
@@ -30,7 +33,7 @@ export function ProcessHero() {
                     transition={{ duration: 0.5, delay: 0.1 }}
                     className="text-4xl md:text-5xl lg:text-[4rem] font-black text-white tracking-tight mb-8 leading-[1.15] max-w-4xl mx-auto"
                 >
-                    A Process Designed for <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-coral to-orange-400">Precision</span>
+                    <span dangerouslySetInnerHTML={{ __html: t('headlinePrefix') }} /><span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-coral to-orange-400">{t('headlineHighlight')}</span>
                 </motion.h1>
 
                 <motion.p
@@ -39,7 +42,7 @@ export function ProcessHero() {
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="text-lg md:text-xl text-indigo-100 mb-10 leading-relaxed max-w-2xl mx-auto font-light"
                 >
-                    Structured, transparent, and built to deliver exceptional outcomes. We remove the guesswork to ensure your project succeeds.
+                    {t('description')}
                 </motion.p>
 
                 {/* Optional Decorative Icons */}

@@ -2,8 +2,12 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { ArrowRight, Layout, PenTool, Code2, SearchCheck, Rocket, HeartHandshake } from 'lucide-react'
 import { ProcessHero } from '@/components/process/hero-section'
+import { getTranslations } from 'next-intl/server'
 
-export default function ProcessPage() {
+export default async function ProcessPage() {
+    const ts = await getTranslations('Process.steps')
+    const tc = await getTranslations('Process.cta')
+
     return (
         <div className="bg-white min-h-screen">
             {/* Hero */}
@@ -18,38 +22,38 @@ export default function ProcessPage() {
 
                     <ProcessItem
                         num="01"
-                        title="Discovery"
-                        desc="Understanding your goals, audience and brand direction. We dive deep into what makes your business unique."
+                        title={ts('t1')}
+                        desc={ts('d1')}
                         icon={<SearchCheck className="h-6 w-6" />}
                     />
                     <ProcessItem
                         num="02"
-                        title="Architecture & Wireframe"
-                        desc="We establish the structure, hierarchy and user flow before design begins. No guesswork, just strategy."
+                        title={ts('t2')}
+                        desc={ts('d2')}
                         icon={<Layout className="h-6 w-6" />}
                     />
                     <ProcessItem
                         num="03"
-                        title="Design & Build"
-                        desc="Thoughtful aesthetics meet conversion-focused execution. We bring the visual identity to life."
+                        title={ts('t3')}
+                        desc={ts('d3')}
                         icon={<PenTool className="h-6 w-6" />}
                     />
                     <ProcessItem
                         num="04"
-                        title="Review & Refinement"
-                        desc="Unlimited revisions until the final experience feels complete. We don't stop until you're thrilled."
+                        title={ts('t4')}
+                        desc={ts('d4')}
                         icon={<Code2 className="h-6 w-6" />}
                     />
                     <ProcessItem
                         num="05"
-                        title="Launch"
-                        desc="Performance, responsiveness, integrations and technical checks. We ensure a flawless go-live."
+                        title={ts('t5')}
+                        desc={ts('d5')}
                         icon={<Rocket className="h-6 w-6" />}
                     />
                     <ProcessItem
                         num="06"
-                        title="Ongoing Partnership"
-                        desc="Lifetime support for technical issues and core updates. We remain your digital partner."
+                        title={ts('t6')}
+                        desc={ts('d6')}
                         icon={<HeartHandshake className="h-6 w-6" />}
                     />
 
@@ -58,7 +62,7 @@ export default function ProcessPage() {
                 <div className="mt-20 text-center">
                     <Link href="/contact">
                         <Button size="lg" className="h-14 px-10 text-lg bg-brand-coral hover:bg-orange-600 text-white font-semibold shadow-xl shadow-orange-500/20">
-                            Start Your Project
+                            {tc('btn')}
                         </Button>
                     </Link>
                 </div>

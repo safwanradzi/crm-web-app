@@ -17,7 +17,7 @@ const testimonials: Testimonial[] = [
     {
         name: "Sarah Jenkins",
         role: "Marketing Director, Aura Glow",
-        text: "SR Digital completely transformed our online presence. The new design isn't just beautiful—it actually doubled our lead value in the first month.",
+        text: "SR Digital completely transformed our online presence. The new design isn't just beautiful, it actually doubled our lead value in the first month.",
         initial: "S"
     },
     {

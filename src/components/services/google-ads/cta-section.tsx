@@ -1,10 +1,13 @@
 'use client'
 
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
+import { useTranslations } from 'next-intl'
 
 export function AdsCTA() {
+    const t = useTranslations('GoogleAds.cta')
+
     return (
         <section className="py-16 bg-gradient-to-br from-blue-600 to-indigo-700 relative overflow-hidden text-center">
             {/* Background Effects */}
@@ -17,19 +20,20 @@ export function AdsCTA() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
-                        Ready to Attract Customers <br /> Who Are Already Searching?
-                    </h2>
+                    <h2 
+                        className="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight"
+                        dangerouslySetInnerHTML={{ __html: t('headline') }}
+                    />
                     <p className="text-indigo-100 text-xl mb-10 max-w-2xl mx-auto">
-                        Let’s review your business goals and see if Google Ads is the right growth channel for you.
+                        {t('subtitle')}
                     </p>
 
                     <Button asChild size="lg" className="h-16 px-12 text-lg bg-white text-blue-600 hover:bg-slate-50 font-bold rounded-full shadow-xl transition-all hover:scale-[1.02]">
-                        <Link href="/contact">Book Free Google Ads Consultation</Link>
+                        <Link href="/contact">{t('btn')}</Link>
                     </Button>
 
                     <p className="mt-6 text-indigo-200 text-sm font-medium opacity-80">
-                        Clear strategy. Transparent pricing. No long-term lock-in.
+                        {t('footer')}
                     </p>
                 </motion.div>
             </div>

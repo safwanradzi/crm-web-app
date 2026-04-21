@@ -1,21 +1,24 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 
-const steps = [
-    { number: "01", title: "Discovery", desc: "Understand your business, audience, and goals." },
-    { number: "02", title: "Structure & Copy", desc: "Plan layout, content flow, and conversion strategy." },
-    { number: "03", title: "Design & Build", desc: "Develop responsive, high-performing pages." },
-    { number: "04", title: "Launch & Support", desc: "Go live, get training, and grow." }
+const getSteps = (t: any) => [
+    { number: "01", title: t('p1Title'), desc: t('p1Desc') },
+    { number: "02", title: t('p2Title'), desc: t('p2Desc') },
+    { number: "03", title: t('p3Title'), desc: t('p3Desc') },
+    { number: "04", title: t('p4Title'), desc: t('p4Desc') }
 ]
 
 export function ProcessSection() {
+    const t = useTranslations('WebDev.process')
+    const steps = getSteps(t)
     return (
         <section className="py-12 bg-white">
             <div className="container mx-auto px-4 max-w-6xl">
                 <div className="text-center mb-16">
-                    <span className="text-brand-indigo font-bold uppercase tracking-widest text-sm mb-3 block">Simple & Clear</span>
-                    <h2 className="text-3xl font-extrabold text-brand-midnight">Our Website Development Process</h2>
+                    <span className="text-brand-indigo font-bold uppercase tracking-widest text-sm mb-3 block">{t('label')}</span>
+                    <h2 className="text-3xl font-extrabold text-brand-midnight">{t('headline')}</h2>
                 </div>
 
                 <div className="grid md:grid-cols-4 gap-8">

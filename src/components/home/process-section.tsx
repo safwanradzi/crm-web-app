@@ -2,35 +2,39 @@
 
 import { motion } from 'framer-motion'
 import { MessagesSquare, PencilRuler, Code2, Rocket } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
-const steps = [
+const getSteps = (t: any) => [
     {
         num: "01",
-        title: "Discovery",
-        desc: "We align on your goals, audience, and offer.",
+        title: t('s1Title'),
+        desc: t('s1Desc'),
         icon: <MessagesSquare className="w-6 h-6 text-brand-indigo" />
     },
     {
         num: "02",
-        title: "Structure & Copy",
-        desc: "We map your conversion flow and craft messaging that sells clearly.",
+        title: t('s2Title'),
+        desc: t('s2Desc'),
         icon: <PencilRuler className="w-6 h-6 text-brand-indigo" />
     },
     {
         num: "03",
-        title: "Build & Optimize",
-        desc: "We develop and optimize for speed, mobile, and conversions.",
+        title: t('s3Title'),
+        desc: t('s3Desc'),
         icon: <Code2 className="w-6 h-6 text-brand-indigo" />
     },
     {
         num: "04",
-        title: "Launch & Improve",
-        desc: "We launch, track performance, and refine for better results.",
+        title: t('s4Title'),
+        desc: t('s4Desc'),
         icon: <Rocket className="w-6 h-6 text-brand-indigo" />
     }
 ]
 
 export function ProcessSection() {
+    const t = useTranslations('Home.process')
+    const steps = getSteps(t)
+
     return (
         <section className="py-24 bg-brand-midnight text-white relative overflow-hidden">
             {/* Background Pattern */}
@@ -38,9 +42,9 @@ export function ProcessSection() {
 
             <div className="container mx-auto px-4 relative z-10 max-w-6xl">
                 <div className="text-center max-w-3xl mx-auto mb-20">
-                    <span className="text-brand-coral font-bold uppercase tracking-widest text-sm mb-3 block">How It Works</span>
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6">A Simple, Proven Process</h2>
-                    <p className="text-slate-400 text-lg">We’ve refined our workflow to be efficient, transparent, and focused on your goals.</p>
+                    <span className="text-brand-coral font-bold uppercase tracking-widest text-sm mb-3 block">{t('label')}</span>
+                    <h2 className="text-3xl md:text-5xl font-bold mb-6">{t('headline')}</h2>
+                    <p className="text-slate-400 text-lg">{t('subtitle')}</p>
                 </div>
 
                 <div className="grid md:grid-cols-4 gap-8 relative">

@@ -2,37 +2,40 @@
 
 import { motion } from 'framer-motion'
 import { Search, TrendingUp, AlertCircle, BarChart } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
-const audienceList = [
+const getAudienceList = (t: any) => [
     {
         icon: <Search className="w-8 h-8 text-brand-indigo" />,
-        title: "Businesses offering products",
-        description: "or services that people are actively searching for on Google."
+        title: t('a1Title'),
+        description: t('a1Desc')
     },
     {
         icon: <TrendingUp className="w-8 h-8 text-blue-500" />,
-        title: "Brands wanting leads",
-        description: "that need faster, measurable leads and sales growth."
+        title: t('a2Title'),
+        description: t('a2Desc')
     },
     {
         icon: <AlertCircle className="w-8 h-8 text-brand-coral" />,
-        title: "Companies wasting budget",
-        description: "tired of spending on unoptimized ads with poor returns."
+        title: t('a3Title'),
+        description: t('a3Desc')
     },
     {
         icon: <BarChart className="w-8 h-8 text-green-500" />,
-        title: "Businesses ready to scale",
-        description: "looking for clear ROI tracking and performance scaling."
+        title: t('a4Title'),
+        description: t('a4Desc')
     }
 ]
 
 export function AdsWhoIsFor() {
+    const t = useTranslations('GoogleAds.who')
+    const audienceList = getAudienceList(t)
     return (
         <section className="py-12 bg-slate-50">
             <div className="container mx-auto px-4 max-w-6xl">
                 <div className="text-center mb-12">
-                    <span className="text-brand-indigo font-bold uppercase tracking-widest text-sm mb-3 block">Target Audience</span>
-                    <h2 className="text-3xl font-extrabold text-brand-midnight">This Service Is Ideal For:</h2>
+                    <span className="text-brand-indigo font-bold uppercase tracking-widest text-sm mb-3 block">{t('label')}</span>
+                    <h2 className="text-3xl font-extrabold text-brand-midnight">{t('headline')}</h2>
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

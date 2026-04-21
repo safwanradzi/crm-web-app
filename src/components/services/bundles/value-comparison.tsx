@@ -34,7 +34,7 @@ export function ValueComparison() {
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-extrabold text-brand-midnight mb-6">Why Bundles Deliver Better Results</h2>
                     <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                        It’s not just about saving money — it’s about making your marketing machine run smoother.
+                        It’s not just about saving money. It’s about making your marketing machine run smoother.
                     </p>
                 </div>
 

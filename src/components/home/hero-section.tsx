@@ -1,12 +1,15 @@
 'use client'
 
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
 import { CheckCircle2 } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 export function HeroSection() {
+    const t = useTranslations('Home.hero')
+
     return (
         <section className="relative pt-32 pb-24 md:pt-32 md:pb-32 overflow-hidden bg-gradient-to-br from-brand-midnight via-brand-midnight to-brand-indigo">
             {/* Abstract Background Elements */}
@@ -26,7 +29,7 @@ export function HeroSection() {
                             transition={{ duration: 0.5, delay: 0.1 }}
                             className="text-4xl md:text-5xl lg:text-[3.5rem] font-black text-white tracking-tight mb-6 leading-[1.15]"
                         >
-                            Websites & Ads Built to <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-coral to-orange-400">Convert</span> — Not Just Look Good.
+                            {t('titlePrefix')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-coral to-orange-400">{t('convertHighlight')}</span>{t('titleTail')}
                         </motion.h1>
 
                         {/* Mobile Visual (Visible only on mobile/tablet) */}
@@ -52,7 +55,7 @@ export function HeroSection() {
                             transition={{ duration: 0.5, delay: 0.2 }}
                             className="text-lg md:text-xl text-indigo-100 mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0 font-light"
                         >
-                            We help businesses grow online with conversion-focused websites and performance-driven advertising strategies.
+                            {t('description')}
                         </motion.p>
 
                         <motion.div
@@ -62,10 +65,10 @@ export function HeroSection() {
                             className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10"
                         >
                             <Button asChild size="lg" className="h-14 px-8 text-lg bg-brand-coral hover:bg-orange-600 text-white shadow-lg shadow-orange-900/20 rounded-full transition-all hover:scale-[1.02] border-0">
-                                <Link href="/contact">Get a Free Consultation</Link>
+                                <Link href="https://wa.me/60186267912?text=Hi%2C%20I%27m%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer">{t('ctaPrimary')}</Link>
                             </Button>
                             <Button asChild size="lg" variant="outline" className="h-14 px-8 text-lg border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white hover:text-brand-midnight rounded-full transition-all hover:scale-[1.02]">
-                                <Link href="/portfolio">View Our Work</Link>
+                                <Link href="/portfolio">{t('ctaSecondary')}</Link>
                             </Button>
                         </motion.div>
 
@@ -77,11 +80,11 @@ export function HeroSection() {
                         >
                             <span className="flex items-center gap-2">
                                 <CheckCircle2 className="w-4 h-4 text-brand-coral" />
-                                Trusted by growing brands
+                                {t('trust1')}
                             </span>
                             <span className="flex items-center gap-2">
                                 <CheckCircle2 className="w-4 h-4 text-brand-coral" />
-                                Local businesses
+                                {t('trust2')}
                             </span>
                         </motion.div>
                     </div>

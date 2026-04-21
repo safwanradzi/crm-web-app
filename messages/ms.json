@@ -1,0 +1,382 @@
+{
+  "Navbar": {
+    "home": "Laman Utama",
+    "about": "Mengenai Kami",
+    "process": "Proses",
+    "services": "Servis",
+    "portfolio": "Portfolio",
+    "contact": "Hubungi",
+    "getStarted": "Mula Sekarang"
+  },
+  "Home": {
+    "hero": {
+      "titlePrefix": "Website & Iklan Yang Direka Untuk ",
+      "convertHighlight": "Convert",
+      "titleTail": ", Bukan Sekadar Nampak Cantik",
+      "description": "Kami bantu bisnes berkembang secara online dengan website yang fokus pada conversion dan strategi iklan yang betul-betul mendatangkan hasil.",
+      "ctaPrimary": "Dapatkan Konsultasi Percuma",
+      "ctaSecondary": "Lihat Hasil Kerja Kami",
+      "trust1": "Dipercayai oleh bisnes yang sedang berkembang",
+      "trust2": "Peniaga tempatan"
+    },
+    "trustStrip": {
+      "f1": "Strategi Berfokuskan Conversion",
+      "f2": "Harga Jelas & Telus",
+      "f3": "Siap Dengan Cepat",
+      "f4": "Mesra Mobile & Sedia Untuk Iklan",
+      "f5": "Fokus Kepada Prestasi"
+    },
+    "services": {
+      "label": "Apa Yang Kami Boleh Bantu Anda Bina",
+      "subtitle": "Setiap yang kami bina direka untuk tingkatkan conversion, leads dan jualan — bukan sekadar nampak cantik tanpa hasil.",
+      "s1Title": "Website High-Converting",
+      "s1Desc": "Dari landing page hingga website penuh, kami bina aset digital yang direka untuk tukarkan pelawat kepada pelanggan sebenar.",
+      "s1Link": "Lihat Pakej Website",
+      "s2Title": "Pengurusan Google Ads",
+      "s2Desc": "Tangkap pelanggan yang memang sedang mencari solusi anda — tepat pada masa mereka perlukan.",
+      "s2Link": "Lihat Pakej Google Ads",
+      "s3Title": "Iklan Facebook & Instagram",
+      "s3Desc": "Strategi iklan berasaskan kreativiti yang tukarkan perhatian kepada tindakan, dan klik kepada pelanggan.",
+      "s3Link": "Lihat Pakej Meta Ads"
+    },
+    "differentiation": {
+      "headline": "Kami Bukan Sekadar Bina.",
+      "headlineHighlight": "Kami Reka Untuk Hasil.",
+      "b1": "Bermula dengan strategi (bukan template rawak)",
+      "b2": "Struktur dibina berdasarkan psikologi conversion",
+      "b3": "Mesej jelas + susunan yang memujuk + CTA yang kuat",
+      "b4": "Laju, mesra mobile & sesuai untuk trafik iklan",
+      "b5": "Mudah scale: tambah page, funnel & campaign bila-bila masa",
+      "fwHeader": "Framework Conversion",
+      "fwSub": "Aliran Sistem",
+      "fwS1": "Tarik Perhatian", "fwS1Desc": "Hook",
+      "fwS2": "Masalah", "fwS2Desc": "Pain Point",
+      "fwS3": "Penyelesaian", "fwS3Desc": "Offer Anda",
+      "fwS4": "Bukti", "fwS4Desc": "Kepercayaan",
+      "fwS5": "Tindakan", "fwS5Desc": "CTA",
+      "fwOutput": "Conversion",
+      "badge1": "Struktur",
+      "badge2": "Dioptimumkan Untuk Conversion"
+    },
+    "process": {
+      "label": "Cara Kami Bekerja",
+      "headline": "Proses Mudah Yang Dah Terbukti",
+      "subtitle": "Kami susun workflow supaya lebih jelas, efisien dan fokus kepada hasil yang anda nak capai.",
+      "s1Title": "Discovery", "s1Desc": "Kami fahamkan matlamat, target audience dan tawaran anda.",
+      "s2Title": "Struktur & Copywriting", "s2Desc": "Kami susun flow conversion dan bina ayat yang jelas serta menjual.",
+      "s3Title": "Build & Optimize", "s3Desc": "Kami bina website dan optimize untuk kelajuan, mobile dan conversion.",
+      "s4Title": "Launch & Improve", "s4Desc": "Website dilancarkan, prestasi dipantau dan diperbaiki untuk hasil lebih baik."
+    },
+    "portfolio": {
+      "label": "Hasil Kerja Kami",
+      "headline": "Projek Pilihan",
+      "subtitle": "Antara website dan projek digital yang kami bina untuk bisnes sebenar.",
+      "visit": "Lawati Website",
+      "viewAll": "Lihat Portfolio Penuh",
+      "noImage": "Tiada Imej"
+    },
+    "about": {
+      "label": "Siapa Kami",
+      "headline": "SR DIGITAL SOLUTIONS",
+      "desc": "Kami adalah agensi digital yang fokus kepada hasil. Kami bina website dan sistem iklan yang betul-betul berfungsi untuk bisnes. Tiada ayat kosong, tiada janji melampau — hanya strategi tersusun untuk growth jangka panjang.",
+      "v1": "Strategi lebih penting dari trend",
+      "v2": "Prestasi lebih penting dari rupa semata",
+      "v3": "Ketelusan lebih penting dari hype",
+      "v4": "Growth lebih penting dari jalan pintas",
+      "btn": "Kenali Kami Lebih Lanjut"
+    },
+    "cta": {
+      "headline": "Bersedia Nak Scale Bisnes",
+      "headlineBr": "Dengan Strategi Digital Terbukti?",
+      "desc": "Kongsikan matlamat anda. Kami akan bantu bina roadmap yang jelas — dari website yang convert hingga ke iklan yang menguntungkan.",
+      "btn": "Tempah Konsultasi Percuma",
+      "footer": "Tiada paksaan. Harga jelas. Respon pantas."
+    }
+  },
+  "WebDev": {
+    "hero": {
+      "prefix": "Website Profesional Yang Direka Untuk ",
+      "highlight": "Tukar Pelawat",
+      "suffix": " Jadi Pelanggan",
+      "description": "Kami design dan bina website berfokuskan conversion untuk bisnes yang nak leads, jualan dan growth jangka panjang.",
+      "ctaPrimary": "Dapatkan Konsultasi Percuma",
+      "ctaSecondary": "Lihat Pakej"
+    },
+    "who": {
+      "label": "Siapa Sesuai",
+      "headline": "Servis Ini Sesuai Untuk:",
+      "a1Title": "Owner Bisnes", "a1Desc": "Yang belum ada website proper untuk tampilkan brand secara profesional.",
+      "a2Title": "Bisnes Running Ads", "a2Desc": "Tapi conversion rendah walaupun trafik tinggi.",
+      "a3Title": "Service Provider", "a3Desc": "Yang perlukan kredibiliti lebih kuat dan aliran leads yang konsisten.",
+      "a4Title": "Bisnes Sedang Grow", "a4Desc": "Yang perlukan website scalable dan ready untuk conversion."
+    },
+    "diff": {
+      "headline": "Kenapa Ramai Pilih Kami",
+      "subtitle": "Kami bukan sekadar siapkan website. Kami fokus pada hasil.",
+      "d1Title": "Mulakan dengan strategi, bukan teka template", "d1Desc": "Kami plan dulu sebelum build.",
+      "d2Title": "Direka untuk convert trafik & ads", "d2Desc": "Sesuai untuk Facebook & Google Ads.",
+      "d3Title": "Mesej jelas + CTA tepat", "d3Desc": "Pelawat tahu apa nak buat seterusnya.",
+      "d4Title": "Laju & mobile-first", "d4Desc": "Lebih mesra pengguna dan bantu ranking.",
+      "d5Title": "Struktur boleh scale", "d5Desc": "Mudah tambah page, funnel dan feature bila bisnes berkembang."
+    },
+    "process": {
+      "label": "Mudah & Jelas",
+      "headline": "Proses Website Kami",
+      "p1Title": "Discovery", "p1Desc": "Faham bisnes, target audience dan matlamat anda.",
+      "p2Title": "Struktur & Copy", "p2Desc": "Susun flow, layout dan ayat yang jelas menjual.",
+      "p3Title": "Design & Build", "p3Desc": "Bina website yang responsive, laju dan perform.",
+      "p4Title": "Launch & Support", "p4Desc": "Go live, training ringkas dan support untuk grow."
+    },
+    "faq": {
+      "headline": "Soalan Lazim",
+      "subtitle": "Jawapan kepada persoalan biasa sebelum mula.",
+      "q1": "Berapa lama siap?", "a1": "Kebanyakan projek siap dalam 3 hingga 7 hari bekerja, bergantung pada skop dan kesiapan bahan. Projek urgent boleh dipercepatkan.",
+      "q2": "Sediakan sekali copywriting dan gambar?", "a2": "Ya. Kami bantu basic copywriting, susun layout dan arah visual. Untuk hasil terbaik, sediakan detail produk, brand asset dan mesej utama.",
+      "q3": "Website optimize untuk conversion?", "a3": "Ya. Setiap page dibina dengan fokus conversion termasuk layout, CTA dan user flow.",
+      "q4": "Termasuk SEO?", "a4": "Termasuk basic on-page SEO seperti struktur, meta tag dan performance. Advanced SEO boleh add-on.",
+      "q5": "Boleh request revision?", "a5": "Ya. Ada beberapa round revision untuk capai hasil yang ikut expectation.",
+      "q6": "Mobile friendly?", "a6": "100%. Fully responsive untuk mobile, tablet dan desktop.",
+      "q7": "Boleh upgrade kemudian?", "a7": "Boleh. Struktur website memang disediakan untuk mudah tambah page, feature atau integration.",
+      "q8": "Sediakan domain & hosting?", "a8": "Kami boleh guide atau uruskan untuk anda. Caj berasingan kecuali termasuk dalam pakej.",
+      "q9": "Guna platform apa?", "a9": "WordPress + Elementor untuk fleksibiliti dan mudah urus jangka panjang.",
+      "q10": "Saya boleh edit sendiri?", "a10": "Boleh. Anda akan dapat akses penuh dan editor yang mudah digunakan.",
+      "q11": "Boleh integrate payment atau form?", "a11": "Ya. Boleh integrate payment gateway, form, WhatsApp dan automation tools.",
+      "q12": "Kalau saya tak ada knowledge teknikal?", "a12": "Tak perlu risau. Kami urus dari setup sampai launch. Anda fokus pada bisnes, kami handle technical."
+    },
+    "problem": {
+      "probLabel": "THE PROBLEM",
+      "probHeadline": "Website Bukan Sekadar Design, <br /> Tapi Aset Bisnes",
+      "p1": "Pelawat datang, tapi tak ambil tindakan",
+      "p2": "Trafik iklan terbuang pada page yang lemah",
+      "p3": "Website nampak lama dan kurang meyakinkan",
+      "p4": "Tiada mesej jelas atau CTA yang kuat",
+      "solLabel": "THE SOLUTION",
+      "solHeadline": "Direka Untuk Conversion",
+      "solDesc": "Kami bina website dengan struktur yang jelas, ayat yang memujuk, dan strategi conversion yang betul supaya setiap pelawat tahu apa yang perlu dibuat seterusnya.",
+      "s1": "Susunan Strategik",
+      "s2": "Copywriting Yang Menjual",
+      "s3": "Laju & Mesra Mobile"
+    },
+    "cta": {
+      "headline": "Nak Website Yang Betul-Betul <br /> Berfungsi Untuk Bisnes Anda?",
+      "subtitle": "Jom bincang matlamat anda. Kami cadangkan pakej website yang paling sesuai.",
+      "btn": "Tempah Konsultasi Website Percuma",
+      "footer": "Tiada paksaan. Harga jelas. Respon pantas."
+    }
+  },
+  "GoogleAds": {
+    "hero": {
+      "prefix": "Google Ads Yang ",
+      "highlight": "Tarik",
+      "suffix": " Pembeli Berpotensi Tinggi",
+      "description": "Kami rancang, lancar dan optimize kempen Google Ads untuk tarik pelanggan yang memang sedang mencari produk atau servis anda.",
+      "ctaPrimary": "Dapatkan Konsultasi Percuma",
+      "ctaSecondary": "Lihat Pakej"
+    },
+    "who": {
+      "label": "Siapa Sesuai",
+      "headline": "Servis Ini Sesuai Untuk:",
+      "a1Title": "Bisnes yang jual produk/servis", "a1Desc": "yang memang dicari di Google.",
+      "a2Title": "Brand yang nak leads cepat", "a2Desc": "perlukan pertumbuhan jualan yang boleh diukur.",
+      "a3Title": "Bisnes yang burn budget", "a3Desc": "dah penat ads tak optimize dan hasil rendah.",
+      "a4Title": "Bisnes nak scale", "a4Desc": "perlukan tracking ROI yang jelas dan strategi growth."
+    },
+    "problem": {
+      "probLabel": "Masalah",
+      "probHeadline": "Google Ads Berfungsi <br /> Bila Buat Dengan Betul",
+      "p1": "Duit keluar tapi klik tak berkualiti",
+      "p2": "Ads muncul pada keyword tak relevan",
+      "p3": "Tiada tracking jelas untuk leads atau sales",
+      "p4": "Campaign jalan tanpa optimization",
+      "solLabel": "Solusi",
+      "solHeadline": "Tepat Pada Masa Yang Betul",
+      "solDesc": "Google Ads hubungkan bisnes anda dengan pelanggan tepat pada masa mereka mencari. Kami pastikan ads anda muncul pada keyword yang betul, mesej yang tepat, dan sentiasa dioptimumkan untuk prestasi.",
+      "s1": "Keyword Yang Tepat",
+      "s2": "Copy Iklan Yang Menarik",
+      "s3": "Optimization Berterusan"
+    },
+    "what": {
+      "headline": "Apa Yang Termasuk",
+      "subtitle": "Pengurusan lengkap dari setup hingga scaling.",
+      "i1": "Kajian keyword berdasarkan niat membeli",
+      "i2": "Struktur campaign & ad group yang jelas",
+      "i3": "Copywriting untuk search ads",
+      "i4": "Setup conversion tracking (leads / sales)",
+      "i5": "Strategi bajet & bidding",
+      "i6": "Optimization berterusan",
+      "i7": "Report prestasi yang jelas"
+    },
+    "process": {
+      "label": "Cara Kami Bekerja",
+      "headline": "Proses Google Ads Kami",
+      "p1Title": "Strategi & Research", "p1Desc": "Faham offer, audience dan buying intent.",
+      "p2Title": "Setup Campaign", "p2Desc": "Bina struktur kempen yang clean dan fokus conversion.",
+      "p3Title": "Launch & Optimize", "p3Desc": "Monitor dan optimize secara berterusan.",
+      "p4Title": "Track & Scale", "p4Desc": "Scale yang menjadi, buang pembaziran."
+    },
+    "faq": {
+      "headline": "Soalan Lazim",
+      "subtitle": "Jawapan sebelum kita mula.",
+      "q1": "Berapa lama nampak hasil?", "a1": "Trafik boleh masuk hampir serta-merta selepas launch. Hasil yang lebih stabil biasanya dalam 2 hingga 4 minggu selepas data cukup untuk optimize.",
+      "q2": "Bajet berapa sesuai untuk mula?", "a2": "Bergantung pada industri dan persaingan. Kebanyakan bermula sekitar RM30 hingga RM100 sehari. Kami akan cadangkan ikut matlamat dan market.",
+      "q3": "Ada jaminan hasil?", "a3": "Tiada janji kosong. Kami fokus pada strategi berasaskan data, optimization berterusan dan ketelusan untuk maksimumkan ROI.",
+      "q4": "Apa yang termasuk dalam servis?", "a4": "Setup campaign, struktur, keyword research (high intent), copywriting, conversion tracking, dan optimization berterusan.",
+      "q5": "Saya ada akses akaun?", "a5": "Ya. Anda pegang ownership penuh dan boleh akses bila-bila masa.",
+      "q6": "Macam mana tarik pembeli berkualiti?", "a6": "Fokus pada keyword berintensi tinggi, targeting tepat dan mesej iklan yang optimized.",
+      "q7": "Landing page termasuk?", "a7": "Ya. Kami boleh design atau optimize landing page supaya trafik convert jadi leads atau sales.",
+      "q8": "Kalau ads tak perform?", "a8": "Kami monitor dan adjust berdasarkan data seperti keyword, bidding, targeting dan creatives untuk improve hasil.",
+      "q9": "Boleh pause bila-bila masa?", "a9": "Boleh. Tiada lock-in jangka panjang.",
+      "q10": "Macam mana ukur kejayaan?", "a10": "Kami track metrik seperti CPL, conversion rate, ROAS dan revenue. Semua dilaporkan dengan jelas."
+    },
+    "cta": {
+      "headline": "Nak Tarik Pelanggan Yang <br /> Memang Tengah Cari?",
+      "subtitle": "Jom semak matlamat bisnes anda dan tentukan sama ada Google Ads sesuai untuk growth anda.",
+      "btn": "Tempah Konsultasi Google Ads Percuma",
+      "footer": "Strategi jelas. Harga telus. Tiada kontrak panjang."
+    }
+  },
+  "MetaAds": {
+    "hero": {
+      "prefix": "Iklan Facebook & Instagram Yang Tukarkan ",
+      "highlight": "Perhatian",
+      "suffix": " Jadi Jualan",
+      "description": "Kami rancang, lancar dan optimize kempen Meta Ads untuk hasilkan leads dan jualan dengan sasaran audience yang tepat dan mesej yang betul.",
+      "ctaPrimary": "Dapatkan Konsultasi Percuma",
+      "ctaSecondary": "Lihat Pakej"
+    },
+    "who": {
+      "label": "Siapa Sesuai",
+      "headline": "Servis Ini Sesuai Untuk:",
+      "a1Title": "Brand yang nak leads konsisten", "a1Desc": "nak tingkatkan jualan atau pertanyaan setiap hari.",
+      "a2Title": "Bisnes launch offer baru", "a2Desc": "produk atau servis yang baru masuk market.",
+      "a3Title": "Masalah ad fatigue", "a3Desc": "kreatif cepat ‘burn’ dan performance drop.",
+      "a4Title": "Bisnes nak scale", "a4Desc": "nak grow dengan trafik berbayar dari social media."
+    },
+    "problem": {
+      "probLabel": "Masalah",
+      "probHeadline": "Facebook Ads Jadi Berkesan <br /> Bila Strategi Jumpa Kreatif",
+      "p1": "Klik ada tapi tak convert",
+      "p2": "Target audience tak tepat",
+      "p3": "Kreatif cepat ‘mati’",
+      "p4": "Tiada funnel atau follow-up yang jelas",
+      "solLabel": "Solusi",
+      "solHeadline": "Targeting + Kreatif = Hasil",
+      "solDesc": "Facebook dan Instagram Ads bantu anda capai pelanggan ideal berdasarkan minat, tingkah laku dan niat. Kami gabungkan strategi audience, kreatif yang menarik dan optimization berterusan untuk tukarkan perhatian jadi hasil yang boleh diukur.",
+      "s1": "Strategi Audience",
+      "s2": "Kreatif Yang Menarik",
+      "s3": "Optimization Berterusan"
+    },
+    "what": {
+      "headline": "Apa Yang Termasuk",
+      "subtitle": "Pengurusan penuh untuk growth iklan social anda.",
+      "i1": "Perancangan strategi audience & funnel",
+      "i2": "Setup struktur campaign & ad set",
+      "i3": "Arah kreatif dan panduan visual",
+      "i4": "Copywriting untuk iklan",
+      "i5": "Setup pixel & conversion tracking",
+      "i6": "Agihan bajet & strategi scaling",
+      "i7": "Testing & optimization berterusan",
+      "i8": "Report prestasi"
+    },
+    "process": {
+      "label": "Cara Kami Bekerja",
+      "headline": "Proses Meta Ads Kami",
+      "p1Title": "Strategi & Funnel", "p1Desc": "Faham offer, audience dan objektif anda.",
+      "p2Title": "Setup Campaign", "p2Desc": "Bina kempen dengan targeting yang betul.",
+      "p3Title": "Testing Kreatif", "p3Desc": "Test, analisa dan improve iklan secara berterusan.",
+      "p4Title": "Scale Yang Menjadi", "p4Desc": "Tambah bajet pada iklan dan audience yang perform."
+    },
+    "faq": {
+      "headline": "Soalan Lazim",
+      "subtitle": "Jawapan sebelum kita mula.",
+      "q1": "Berapa lama nampak hasil?", "a1": "Trafik boleh masuk dalam 24 hingga 72 jam selepas launch. Performance terbaik biasanya ambil 2 hingga 3 minggu untuk test dan optimize.",
+      "q2": "Bajet berapa sesuai untuk mula?", "a2": "Kebiasaannya RM30 hingga RM150 sehari, bergantung niche dan matlamat. Bajet testing penting untuk cari kreatif dan audience terbaik.",
+      "q3": "Sediakan sekali kreatif iklan?", "a3": "Ya. Kami bantu dari segi arah kreatif, mesej dan struktur iklan. Boleh juga cadangkan idea content yang high engagement.",
+      "q4": "Apa beza Meta Ads dengan Google Ads?", "a4": "Meta Ads fokus tarik perhatian dan bina demand. Google Ads tangkap demand yang dah sedia ada. Dengan strategi betul, Meta Ads boleh scale brand lebih cepat.",
+      "q5": "Ada jaminan sales?", "a5": "Tiada jaminan kosong. Kami fokus pada testing berasaskan data, kreatif kuat dan optimization berterusan untuk maksimumkan hasil.",
+      "q6": "Macam mana pastikan ads perform?", "a6": "Kami fokus pada kreatif yang tarik perhatian, mesej jelas, testing audience (broad + targeted) dan A/B testing berterusan.",
+      "q7": "Kalau ads tak perform?", "a7": "Kami monitor dan adjust cepat dari segi kreatif, targeting dan bajet untuk cari apa yang menjadi.",
+      "q8": "Saya ada akses akaun?", "a8": "Ya. Anda ada akses penuh dan ownership akaun Meta Ads.",
+      "q9": "Landing page termasuk?", "a9": "Ya. Kami boleh design atau optimize landing page supaya trafik convert jadi leads atau sales.",
+      "q10": "Boleh scale bila dah profit?", "a10": "Ya. Bila dah jumpa winning campaign, kami scale dengan strategi terbukti sambil jaga kos dan performance.",
+      "q11": "Sesuai untuk bisnes baru?", "a11": "Ya. Sesuai untuk bina awareness cepat, test market dan mula dapatkan sales walaupun belum ada trafik organik."
+    },
+    "cta": {
+      "headline": "Nak Tukarkan Perhatian Di Social Media <br /> Jadi Jualan?",
+      "subtitle": "Jom semak matlamat bisnes anda dan tentukan sama ada Meta Ads sesuai untuk growth anda.",
+      "btn": "Tempah Konsultasi Meta Ads Percuma",
+      "footer": "Strategi jelas. Harga telus. Fokus pada prestasi."
+    }
+  },
+  "Portfolio": {
+    "sectionTitle": "Hasil Kerja Terpilih Kami",
+    "headlinePrefix": "Hasil Kerja Yang Gabungkan ",
+    "headlineHighlight": "Design & Impak",
+    "description": "Koleksi website pilihan yang kami hasilkan untuk pelbagai jenis bisnes. Kami bina pengalaman digital yang membantu bisnes berkembang dan mencapai hasil yang sebenar.",
+    "ctaHeadline": "Dah Bersedia Nak Mulakan Projek Anda?",
+    "ctaButton": "Dapatkan Konsultasi Percuma"
+  },
+  "Process": {
+    "hero": {
+      "subtitle": "Cara Kami Bekerja",
+      "headlinePrefix": "Proses Yang Direka Untuk ",
+      "headlineHighlight": "Ketepatan",
+      "description": "Proses yang tersusun, telus dan fokus pada hasil. Kami buang semua teka-teki supaya projek anda berjalan lancar dan capai hasil terbaik."
+    },
+    "steps": {
+      "t1": "Discovery", "d1": "Kami fahami matlamat, target audience dan hala tuju brand anda secara mendalam.",
+      "t2": "Struktur & Wireframe", "d2": "Kami susun struktur, hierarchy dan flow pengguna sebelum design bermula. Semuanya berdasarkan strategi, bukan teka-teki.",
+      "t3": "Design & Build", "d3": "Design yang menarik digabungkan dengan strategi conversion untuk hasil yang berfungsi, bukan sekadar cantik.",
+      "t4": "Review & Refinement", "d4": "Revisi dibuat sehingga hasil akhir betul-betul capai expectation anda. Kami tak berhenti selagi belum puas hati.",
+      "t5": "Launch", "d5": "Kami pastikan kelajuan, responsiveness, integrasi dan aspek teknikal semuanya berjalan dengan sempurna sebelum live.",
+      "t6": "Sokongan Berterusan", "d6": "Sokongan jangka panjang untuk isu teknikal dan update penting. Kami kekal sebagai partner digital anda."
+    },
+    "cta": {
+      "btn": "Mulakan Projek Anda"
+    }
+  },
+  "Contact": {
+    "hero": {
+      "subtitle": "Hubungi Kami",
+      "headlinePrefix": "Bersedia Nak Bina Sesuatu Yang ",
+      "headlineHighlight": "Luar Biasa?",
+      "description": "Kongsikan matlamat anda, kami akan cadangkan struktur dan solusi yang paling sesuai. Jom mula perbincangan."
+    },
+    "about": {
+      "headline": "Tentang SR Digital Solutions",
+      "description": "SR Digital Solutions adalah studio digital yang fokus pada design dan hasil. Kami bina aset digital yang membantu bisnes berkembang dengan gabungan design yang kemas dan strategi yang berfungsi. Setiap website bukan sekadar nampak cantik, tetapi direka untuk capai tujuan sebenar.",
+      "emailTitle": "Email",
+      "phoneTitle": "WhatsApp / Telefon"
+    },
+    "form": {
+      "headline": "Hantar Mesej",
+      "lName": "Nama", "pName": "Nama Anda",
+      "lPhone": "Telefon", "pPhone": "+60...",
+      "lEmail": "Email", "pEmail": "anda@company.com",
+      "lService": "Servis Yang Diminati", "pService": "Pilih servis...",
+      "opt1": "Landing Page (RM899)",
+      "opt2": "Website Multi-Page (RM1,899)",
+      "opt3": "Kedai eCommerce (RM2,399)",
+      "opt4": "Projek Custom",
+      "opt5": "Pertanyaan Lain",
+      "lMessage": "Detail Projek", "pMessage": "Ceritakan matlamat bisnes anda...",
+      "btnSubmit": "Hantar Mesej",
+      "btnLoading": "Sedang Hantar..."
+    },
+    "success": {
+      "headline": "Mesej Dihantar!",
+      "message": "Terima kasih kerana menghubungi kami. Kami telah terima pertanyaan anda dan akan balas dalam masa 24 jam.",
+      "btn": "Hantar Mesej Lain"
+    }
+  },
+  "Footer": {
+    "tagline": "Studio berteraskan rekaan desain eksklusif yang berdedikasi menghasilkan aset digital untuk memacu pertumbuhan perniagaan anda.",
+    "links": "Pautan",
+    "legal": "Perundangan",
+    "services": "Servis",
+    "getInTouch": "Hubungi Kami",
+    "privacy": "Dasar Privasi",
+    "terms": "Terma Syarat",
+    "rights": "Hak cipta terpelihara."
+  }
+}

@@ -2,8 +2,11 @@
 
 import { motion } from 'framer-motion'
 import { Briefcase, Sparkles } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 export function PortfolioHero() {
+    const t = useTranslations('Portfolio')
+
     return (
         <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden bg-gradient-to-br from-brand-midnight via-brand-midnight to-brand-indigo">
             {/* Abstract Background Elements */}
@@ -20,7 +23,7 @@ export function PortfolioHero() {
                 >
                     <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-indigo-300 text-sm font-medium flex items-center gap-2 backdrop-blur-sm">
                         <Briefcase className="w-4 h-4" />
-                        Our Selected Works
+                        {t('sectionTitle')}
                     </span>
                 </motion.div>
 
@@ -30,7 +33,7 @@ export function PortfolioHero() {
                     transition={{ duration: 0.5, delay: 0.1 }}
                     className="text-4xl md:text-5xl lg:text-[4rem] font-black text-white tracking-tight mb-8 leading-[1.15] max-w-4xl mx-auto"
                 >
-                    Work That Blends <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-coral to-orange-400">Design & Impact</span>
+                    {t('headlinePrefix')}<span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-coral to-orange-400">{t('headlineHighlight')}</span>
                 </motion.h1>
 
                 <motion.p
@@ -39,7 +42,7 @@ export function PortfolioHero() {
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="text-lg md:text-xl text-indigo-100 mb-10 leading-relaxed max-w-2xl mx-auto font-light"
                 >
-                    A curated collection of websites crafted for brands across diverse industries. We build digital experiences that drive growth.
+                    {t('description')}
                 </motion.p>
 
                 {/* Optional Decorative Icons/Badges */}

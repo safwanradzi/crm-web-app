@@ -1,0 +1,382 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "about": "About",
+    "process": "Process",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "getStarted": "Get Started"
+  },
+  "Home": {
+    "hero": {
+      "titlePrefix": "Websites & Ads Built to ",
+      "convertHighlight": "Convert",
+      "titleTail": ", Not Just Look Good.",
+      "description": "We help businesses grow online with conversion-focused websites and performance-driven advertising strategies.",
+      "ctaPrimary": "Get a Free Consultation",
+      "ctaSecondary": "View Our Work",
+      "trust1": "Trusted by growing brands",
+      "trust2": "Local businesses"
+    },
+    "trustStrip": {
+      "f1": "Conversion-Focused Strategy",
+      "f2": "Transparent Pricing",
+      "f3": "Fast Turnaround",
+      "f4": "Mobile & Ads Ready",
+      "f5": "Performance Mindset"
+    },
+    "services": {
+      "label": "What We Help You Build",
+      "subtitle": "Everything we do is designed to increase conversions, leads, and revenue, not vanity metrics.",
+      "s1Title": "High-Converting Websites",
+      "s1Desc": "From landing pages to full websites, we build digital assets designed to turn visitors into leads and customers.",
+      "s1Link": "Explore Website Packages",
+      "s2Title": "Google Ads Management",
+      "s2Desc": "Capture high-intent buyers exactly when they're searching for your solution.",
+      "s2Link": "See Google Ads Packages",
+      "s3Title": "Facebook & Instagram Ads",
+      "s3Desc": "Creative-driven ad strategies that turn attention into action, clicks into customers.",
+      "s3Link": "See Meta Ads Packages"
+    },
+    "differentiation": {
+      "headline": "We Don’t Just Build.",
+      "headlineHighlight": "We Engineer for Results.",
+      "b1": "Strategy-first approach (not random templates)",
+      "b2": "Conversion psychology baked into the layout",
+      "b3": "Clear messaging + persuasive structure + strong CTAs",
+      "b4": "Fast-loading, mobile-first, and ad-traffic ready",
+      "b5": "Built to scale: add pages, funnels, and campaigns",
+      "fwHeader": "Conversion Framework",
+      "fwSub": "System Flow",
+      "fwS1": "Hook", "fwS1Desc": "Attention Grab",
+      "fwS2": "Problem", "fwS2Desc": "Pain Point",
+      "fwS3": "Solution", "fwS3Desc": "Your Offer",
+      "fwS4": "Proof", "fwS4Desc": "Credibility",
+      "fwS5": "CTA", "fwS5Desc": "Action",
+      "fwOutput": "Conversion",
+      "badge1": "Architecture",
+      "badge2": "Conversion Optimized"
+    },
+    "process": {
+      "label": "How It Works",
+      "headline": "A Simple, Proven Process",
+      "subtitle": "We’ve refined our workflow to be efficient, transparent, and focused on your goals.",
+      "s1Title": "Discovery", "s1Desc": "We align on your goals, audience, and offer.",
+      "s2Title": "Structure & Copy", "s2Desc": "We map your conversion flow and craft messaging that sells clearly.",
+      "s3Title": "Build & Optimize", "s3Desc": "We develop and optimize for speed, mobile, and conversions.",
+      "s4Title": "Launch & Improve", "s4Desc": "We launch, track performance, and refine for better results."
+    },
+    "portfolio": {
+      "label": "Our Work",
+      "headline": "Selected Projects",
+      "subtitle": "A preview of websites and digital projects we’ve built for real businesses.",
+      "visit": "Visit Website",
+      "viewAll": "View Full Portfolio",
+      "noImage": "No Image"
+    },
+    "about": {
+      "label": "Who We Are",
+      "headline": "SR DIGITAL SOLUTIONS",
+      "desc": "We’re a results-driven digital agency focused on building websites and advertising systems that actually work. No fluff, no overpromising, just structured strategies designed for sustainable growth.",
+      "v1": "Strategy over trends",
+      "v2": "Performance over vanity",
+      "v3": "Transparency over hype",
+      "v4": "Growth over shortcuts",
+      "btn": "Learn More About Us"
+    },
+    "cta": {
+      "headline": "Ready to Scale Your Business",
+      "headlineBr": "with a Proven Digital Strategy?",
+      "desc": "Tell us your goals. We’ll build the perfect roadmap for growth, from high-converting websites to profitable ad campaigns.",
+      "btn": "Book a Free Consultation",
+      "footer": "No pressure. Clear pricing. Quick response."
+    }
+  },
+  "WebDev": {
+    "hero": {
+      "prefix": "Professional Website Development That ",
+      "highlight": "Converts",
+      "suffix": " Visitors To Customers",
+      "description": "We design and build conversion-focused websites tailored for businesses that want leads, sales, and long-term growth.",
+      "ctaPrimary": "Get Free Consultation",
+      "ctaSecondary": "View Packages"
+    },
+    "who": {
+      "label": "Target Audience",
+      "headline": "This Service Is Perfect For:",
+      "a1Title": "Business Owners", "a1Desc": "without a proper website to represent their brand professionally online.",
+      "a2Title": "Brands Running Ads", "a2Desc": "but experiencing low conversion from traffic and paid campaigns.",
+      "a3Title": "Service Providers", "a3Desc": "who need stronger credibility and a consistent flow of quality leads.",
+      "a4Title": "Growing Businesses", "a4Desc": "that need a scalable, conversion-ready website to support long-term growth."
+    },
+    "diff": {
+      "headline": "Why Clients Choose Us",
+      "subtitle": "We don’t just deliver code. We deliver results.",
+      "d1Title": "Strategy-first, not template guessing", "d1Desc": "We plan before we build.",
+      "d2Title": "Built for ads & traffic conversion", "d2Desc": "Ready for Facebook & Google Ads.",
+      "d3Title": "Clear messaging and CTA placement", "d3Desc": "Guide visitors to buy.",
+      "d4Title": "Fast-loading & mobile-first", "d4Desc": "Rank better on Google.",
+      "d5Title": "Scalable structure", "d5Desc": "Grow as your business grows."
+    },
+    "process": {
+      "label": "Simple & Clear",
+      "headline": "Our Website Development Process",
+      "p1Title": "Discovery", "p1Desc": "Understand your business, audience, and goals.",
+      "p2Title": "Structure & Copy", "p2Desc": "Plan layout, content flow, and conversion strategy.",
+      "p3Title": "Design & Build", "p3Desc": "Develop responsive, high-performing pages.",
+      "p4Title": "Launch & Support", "p4Desc": "Go live, get training, and grow."
+    },
+    "faq": {
+      "headline": "Frequently Asked Questions",
+      "subtitle": "Addressing common concerns before we start.",
+      "q1": "How long does it take?", "a1": "Most projects are completed within 3 to 7 working days, depending on scope and content readiness. Urgent projects can be prioritized upon request.",
+      "q2": "Do you provide content (copywriting & images)?", "a2": "Yes. We can handle basic copywriting, layout structure, and visual direction. However, for best results, we recommend providing your product details, brand assets, and key messaging.",
+      "q3": "Will my website be optimized for conversions?", "a3": "Absolutely. Every page is designed with a conversion first approach, including strategic layout, call to actions, and user flow to maximize leads and sales.",
+      "q4": "Is SEO included?", "a4": "Yes, we implement basic on page SEO such as proper structure, meta tags, and performance optimization. Advanced SEO services can be added separately.",
+      "q5": "Can I request revisions?", "a5": "Yes. We provide revision rounds to ensure the final design meets your expectations and business goals.",
+      "q6": "Will my website be mobile friendly?", "a6": "100%. Your website will be fully responsive, optimized for mobile, tablet, and desktop devices.",
+      "q7": "Can I upgrade or scale my website later?", "a7": "Yes. Your website is built with scalability in mind, allowing future upgrades such as additional pages, features, or integrations.",
+      "q8": "Do you provide domain and hosting?", "a8": "We can guide you through the setup or manage it for you. Domain and hosting are charged separately unless included in your package.",
+      "q9": "What platform do you use?", "a9": "We primarily build using WordPress + Elementor, ensuring flexibility, ease of management, and long term scalability.",
+      "q10": "Will I be able to edit the website myself?", "a10": "Yes. You’ll have full access and can easily update content using a user friendly editor without technical skills.",
+      "q11": "Do you integrate payment systems or forms?", "a11": "Yes. We can integrate payment gateways, lead forms, WhatsApp buttons, and automation tools based on your needs.",
+      "q12": "What if I don’t have any technical knowledge?", "a12": "No problem. We handle everything from setup to launch. You just focus on your business, we take care of the rest."
+    },
+    "problem": {
+      "probLabel": "The Problem",
+      "probHeadline": "A Website Isn’t Just Design <br /> It’s a Business Asset",
+      "p1": "Visitors come but don’t take action",
+      "p2": "Ads traffic wasted on weak pages",
+      "p3": "Website looks outdated or untrustworthy",
+      "p4": "No clear message or CTA",
+      "solLabel": "The Solution",
+      "solHeadline": "Built for Conversion",
+      "solDesc": "We build websites with a clear structure, persuasive messaging, and conversion strategy, so every visitor knows exactly what to do next.",
+      "s1": "Strategic Layouts",
+      "s2": "Copywriting that Sells",
+      "s3": "Fast & Mobile Optimized"
+    },
+    "cta": {
+      "headline": "Ready to Build a Website <br /> That Actually Works?",
+      "subtitle": "Let’s discuss your goals and recommend the right website package for your business.",
+      "btn": "Book Free Website Consultation",
+      "footer": "No pressure. Clear pricing. Fast response."
+    }
+  },
+  "GoogleAds": {
+    "hero": {
+      "prefix": "Google Ads Management That ",
+      "highlight": "Captures",
+      "suffix": " High-Intent Buyers",
+      "description": "We plan, launch, and optimize Google Ads campaigns designed to attract customers who are actively searching for your products or services.",
+      "ctaPrimary": "Get Free Consultation",
+      "ctaSecondary": "View Packages"
+    },
+    "who": {
+      "label": "Target Audience",
+      "headline": "This Service Is Ideal For:",
+      "a1Title": "Businesses offering products", "a1Desc": "or services that people are actively searching for on Google.",
+      "a2Title": "Brands wanting leads", "a2Desc": "that need faster, measurable leads and sales growth.",
+      "a3Title": "Companies wasting budget", "a3Desc": "tired of spending on unoptimized ads with poor returns.",
+      "a4Title": "Businesses ready to scale", "a4Desc": "looking for clear ROI tracking and performance scaling."
+    },
+    "problem": {
+      "probLabel": "The Problem",
+      "probHeadline": "Google Ads Works <br /> When It’s Done Right",
+      "p1": "Spending money but getting low-quality clicks",
+      "p2": "Ads showing for irrelevant search terms",
+      "p3": "No clear tracking of leads or sales",
+      "p4": "Campaigns running without optimization",
+      "solLabel": "The Solution",
+      "solHeadline": "Precision at the Perfect Moment",
+      "solDesc": "Google Ads connects your business with customers at the exact moment they are searching. We ensure your ads appear for the right keywords, with the right message, and are continuously optimized for performance.",
+      "s1": "Right Keywords",
+      "s2": "Compelling Ad Copy",
+      "s3": "Continuous Optimization"
+    },
+    "what": {
+      "headline": "What’s Included",
+      "subtitle": "Comprehensive management from setup to scaling.",
+      "i1": "Keyword research based on buying intent",
+      "i2": "Campaign & ad group structure planning",
+      "i3": "Search ad copywriting",
+      "i4": "Conversion tracking setup (leads / sales)",
+      "i5": "Budget & bidding strategy setup",
+      "i6": "Ongoing optimization & performance tuning",
+      "i7": "Clear performance reporting"
+    },
+    "process": {
+      "label": "How We Work",
+      "headline": "Our Google Ads Management Process",
+      "p1Title": "Strategy & Research", "p1Desc": "Understand your offer, audience, and buying intent.",
+      "p2Title": "Campaign Setup", "p2Desc": "Build a clean, conversion-focused campaign structure.",
+      "p3Title": "Launch & Optimize", "p3Desc": "Monitor performance and optimize continuously.",
+      "p4Title": "Track & Scale", "p4Desc": "Scale what works and eliminate wasted spend."
+    },
+    "faq": {
+      "headline": "Frequently Asked Questions",
+      "subtitle": "Addressing common concerns before we start.",
+      "q1": "How long does it take to see results?", "a1": "Google Ads can start generating traffic almost immediately after launch. However, meaningful and optimized results typically appear within 2 to 4 weeks as we gather data and refine the campaigns.",
+      "q2": "How much budget do I need to start?", "a2": "The ideal budget depends on your industry and competition. Most clients start from RM 30 to RM 100/day, but we’ll recommend a strategy based on your goals and market demand.",
+      "q3": "Do you guarantee results?", "a3": "We don’t believe in unrealistic guarantees. What we do guarantee is a data driven strategy, continuous optimization, and full transparency to maximize your ROI.",
+      "q4": "What’s included in your Google Ads management service?", "a4": "Our service includes: Campaign setup and structure, Keyword research (high intent focus), Ad copywriting, Conversion tracking setup, Ongoing optimization and scaling.",
+      "q5": "Will I have access to my Google Ads account?", "a5": "Yes. You will have full ownership and access to your account at all times. We operate with complete transparency.",
+      "q6": "How do you ensure my ads attract quality buyers?", "a6": "We focus on high intent keywords, precise targeting, and optimized ad messaging to reach users who are actively searching and ready to take action.",
+      "q7": "Do you handle landing pages as well?", "a7": "Yes. We can design or optimize high converting landing pages to ensure your ad traffic turns into actual leads or sales.",
+      "q8": "What if my ads are not performing well?", "a8": "We continuously monitor performance and make data driven adjustments, including keywords, bidding, targeting, and creatives, to improve results.",
+      "q9": "Can I stop or pause anytime?", "a9": "Yes. There are no long term lock ins. You have full control to pause, scale, or stop campaigns anytime.",
+      "q10": "How do you measure success?", "a10": "We track key metrics such as: Cost per lead (CPL), Conversion rate, Return on ad spend (ROAS), Revenue generated. Everything is clearly reported so you know exactly where your money goes."
+    },
+    "cta": {
+      "headline": "Ready to Attract Customers <br /> Who Are Already Searching?",
+      "subtitle": "Let’s review your business goals and see if Google Ads is the right growth channel for you.",
+      "btn": "Book Free Google Ads Consultation",
+      "footer": "Clear strategy. Transparent pricing. No long-term lock-in."
+    }
+  },
+  "MetaAds": {
+    "hero": {
+      "prefix": "Facebook & Instagram Ads That Turn ",
+      "highlight": "Attention",
+      "suffix": " Into Sales",
+      "description": "We plan, launch, and optimize Meta Ads campaigns designed to generate leads and sales by targeting the right audience with the right message.",
+      "ctaPrimary": "Get Free Consultation",
+      "ctaSecondary": "View Packages"
+    },
+    "who": {
+      "label": "Target Audience",
+      "headline": "This Service Is Ideal For:",
+      "a1Title": "Brands needing leads", "a1Desc": "that want to generate consistent leads or sales.",
+      "a2Title": "Launching new offers", "a2Desc": "businesses launching new products or offers to the market.",
+      "a3Title": "Struggling with fatigue", "a3Desc": "companies struggling with ad fatigue or poor creatives.",
+      "a4Title": "Ready to scale", "a4Desc": "businesses ready to scale with paid social traffic."
+    },
+    "problem": {
+      "probLabel": "The Problem",
+      "probHeadline": "Facebook Ads Work &mdash; <br /> When Strategy Meets Creative",
+      "p1": "Ads get clicks but no conversions",
+      "p2": "Wrong audience targeting",
+      "p3": "Creatives burn out too quickly",
+      "p4": "No clear funnel or follow-up strategy",
+      "solLabel": "The Solution",
+      "solHeadline": "Targeting + Creative = Results",
+      "solDesc": "Facebook and Instagram Ads allow you to reach your ideal customers based on interests, behavior, and intent. We combine audience strategy, compelling creatives, and continuous optimization to turn attention into measurable results.",
+      "s1": "Audience Strategy",
+      "s2": "Compelling Creatives",
+      "s3": "Continuous Optimization"
+    },
+    "what": {
+      "headline": "What’s Included",
+      "subtitle": "Full-service management for your social ad growth.",
+      "i1": "Audience & funnel strategy planning",
+      "i2": "Campaign and ad set structure setup",
+      "i3": "Ad creative direction & guidance",
+      "i4": "Copywriting for ads",
+      "i5": "Pixel & conversion tracking setup",
+      "i6": "Budget allocation & scaling strategy",
+      "i7": "Ongoing optimization & testing",
+      "i8": "Performance reporting"
+    },
+    "process": {
+      "label": "How We Work",
+      "headline": "Our Meta Ads Management Process",
+      "p1Title": "Strategy & Funnel Planning", "p1Desc": "Understand your offer, audience, and objective.",
+      "p2Title": "Campaign Setup", "p2Desc": "Build structured campaigns with proper targeting.",
+      "p3Title": "Creative Testing", "p3Desc": "Test, analyze, and refine ads continuously.",
+      "p4Title": "Scale What Works", "p4Desc": "Increase budget on winning ads and audiences."
+    },
+    "faq": {
+      "headline": "Frequently Asked Questions",
+      "subtitle": "Addressing common concerns before we start.",
+      "q1": "How long does it take to see results?", "a1": "Meta Ads can generate traffic quickly, often within 24 to 72 hours after launch. However, optimal performance usually takes 2 to 3 weeks as we test creatives, audiences, and optimize campaigns.",
+      "q2": "How much budget do I need to start?", "a2": "We typically recommend starting from RM 30 to RM 150 per day, depending on your niche and goals. A proper testing budget is important to identify winning creatives and audiences.",
+      "q3": "Do you create the ad creatives as well?", "a3": "Yes. We help with creative direction, messaging, and ad structure. If needed, we can also assist with content ideas tailored for high engagement and conversions.",
+      "q4": "What makes Meta Ads different from Google Ads?", "a4": "Meta Ads focus on capturing attention and creating demand, while Google Ads target users who are already searching. With the right strategy, Meta Ads can scale your brand faster.",
+      "q5": "Do you guarantee sales?", "a5": "No agency can guarantee sales, but we focus on what matters: 👉 data driven testing, strong creatives, and continuous optimization to maximize your return.",
+      "q6": "How do you ensure my ads perform well?", "a6": "We focus on: Scroll stopping creatives, Clear messaging and hooks, Audience testing (broad + targeted), Continuous A/B testing. Everything is optimized based on real performance data.",
+      "q7": "What if my ads are not performing?", "a7": "We continuously monitor campaigns and adjust: Creatives, Targeting, Budget allocation. If something doesn’t work, we pivot fast to find what does.",
+      "q8": "Will I have access to my ad account?", "a8": "Yes. You will have full access and ownership of your Meta Ads account at all times.",
+      "q9": "Do you handle landing pages as well?", "a9": "Yes. We can design or optimize high converting landing pages to ensure your ad traffic turns into actual leads or sales.",
+      "q10": "Can I scale my ads once they are profitable?", "a10": "Yes. Once we identify winning campaigns, we scale using proven strategies while maintaining performance and cost efficiency.",
+      "q11": "Is this suitable for new businesses?", "a11": "Yes. Meta Ads are ideal for businesses that want to: Generate awareness quickly, Test product market fit, Start getting sales even without organic traffic."
+    },
+    "cta": {
+      "headline": "Ready to Turn Social Media <br /> Attention Into Revenue?",
+      "subtitle": "Let’s review your business goals and see if Meta Ads are the right growth channel for you.",
+      "btn": "Book Free Meta Ads Consultation",
+      "footer": "Clear strategy. Transparent pricing. Performance-focused."
+    }
+  },
+  "Portfolio": {
+    "sectionTitle": "Our Selected Works",
+    "headlinePrefix": "Work That Blends ",
+    "headlineHighlight": "Design & Impact",
+    "description": "A curated collection of websites crafted for brands across diverse industries. We build digital experiences that drive growth.",
+    "ctaHeadline": "Ready to start your project?",
+    "ctaButton": "Book a Consultation"
+  },
+  "Process": {
+    "hero": {
+      "subtitle": "Our Methodology",
+      "headlinePrefix": "A Process Designed for ",
+      "headlineHighlight": "Precision",
+      "description": "Structured, transparent, and built to deliver exceptional outcomes. We remove the guesswork to ensure your project succeeds."
+    },
+    "steps": {
+      "t1": "Discovery", "d1": "Understanding your goals, audience and brand direction. We dive deep into what makes your business unique.",
+      "t2": "Architecture & Wireframe", "d2": "We establish the structure, hierarchy and user flow before design begins. No guesswork, just strategy.",
+      "t3": "Design & Build", "d3": "Thoughtful aesthetics meet conversion-focused execution. We bring the visual identity to life.",
+      "t4": "Review & Refinement", "d4": "Unlimited revisions until the final experience feels complete. We don't stop until you're thrilled.",
+      "t5": "Launch", "d5": "Performance, responsiveness, integrations and technical checks. We ensure a flawless go-live.",
+      "t6": "Ongoing Partnership", "d6": "Lifetime support for technical issues and core updates. We remain your digital partner."
+    },
+    "cta": {
+      "btn": "Start Your Project"
+    }
+  },
+  "Contact": {
+    "hero": {
+      "subtitle": "Get in Touch",
+      "headlinePrefix": "Ready to Build Something ",
+      "headlineHighlight": "Exceptional?",
+      "description": "Share your objectives, we’ll recommend the ideal structure and solution. Let's start the conversation."
+    },
+    "about": {
+      "headline": "About SR Digital Solutions",
+      "description": "SR Digital Solutions is a boutique design-first studio dedicated to creating digital assets that accelerate business growth. Our approach blends aesthetic clarity with strategic functionality, ensuring every website not only looks exceptional but performs with purpose.",
+      "emailTitle": "Email Us",
+      "phoneTitle": "WhatsApp / Phone"
+    },
+    "form": {
+      "headline": "Send us a Message",
+      "lName": "Name", "pName": "Your Name",
+      "lPhone": "Phone", "pPhone": "+60...",
+      "lEmail": "Email", "pEmail": "you@company.com",
+      "lService": "Interested Service", "pService": "Select a service...",
+      "opt1": "Landing Page (RM899)",
+      "opt2": "Multi-Pages Website (RM1,899)",
+      "opt3": "eCommerce Website (RM2,399)",
+      "opt4": "Custom Project",
+      "opt5": "Other Inquiry",
+      "lMessage": "Project Details", "pMessage": "Tell us about your business goals...",
+      "btnSubmit": "Send Message",
+      "btnLoading": "Sending..."
+    },
+    "success": {
+      "headline": "Message Sent!",
+      "message": "Thank you for reaching out. We have received your inquiry and will get back to you within 24 hours.",
+      "btn": "Send Another Message"
+    }
+  },
+  "Footer": {
+    "tagline": "A boutique design-first studio dedicated to creating digital assets that accelerate business growth.",
+    "links": "Links",
+    "legal": "Legal",
+    "services": "Services",
+    "getInTouch": "Get in Touch",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "rights": "All rights reserved."
+  }
+}

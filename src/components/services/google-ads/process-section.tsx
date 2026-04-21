@@ -1,21 +1,24 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 
-const steps = [
-    { number: "01", title: "Strategy & Research", desc: "Understand your offer, audience, and buying intent." },
-    { number: "02", title: "Campaign Setup", desc: "Build a clean, conversion-focused campaign structure." },
-    { number: "03", title: "Launch & Optimize", desc: "Monitor performance and optimize continuously." },
-    { number: "04", title: "Track & Scale", desc: "Scale what works and eliminate wasted spend." }
+const getSteps = (t: any) => [
+    { number: "01", title: t('p1Title'), desc: t('p1Desc') },
+    { number: "02", title: t('p2Title'), desc: t('p2Desc') },
+    { number: "03", title: t('p3Title'), desc: t('p3Desc') },
+    { number: "04", title: t('p4Title'), desc: t('p4Desc') }
 ]
 
 export function AdsProcessSection() {
+    const t = useTranslations('GoogleAds.process')
+    const steps = getSteps(t)
     return (
         <section className="py-12 bg-white">
             <div className="container mx-auto px-4 max-w-6xl">
                 <div className="text-center mb-16">
-                    <span className="text-brand-indigo font-bold uppercase tracking-widest text-sm mb-3 block">How We Work</span>
-                    <h2 className="text-3xl font-extrabold text-brand-midnight">Our Google Ads Management Process</h2>
+                    <span className="text-brand-indigo font-bold uppercase tracking-widest text-sm mb-3 block">{t('label')}</span>
+                    <h2 className="text-3xl font-extrabold text-brand-midnight">{t('headline')}</h2>
                 </div>
 
                 <div className="grid md:grid-cols-4 gap-8">
